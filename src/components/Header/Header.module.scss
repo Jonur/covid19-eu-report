@@ -1,0 +1,13 @@
+@import '../../media/colours';
+
+.appHeader {
+  color: $app-white;
+  padding: 0 0.5rem 0.5rem;
+  background-color: $light-blue;
+  border-bottom: 0.25rem solid $dark-blue;
+
+  .appTitle {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}

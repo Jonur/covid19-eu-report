@@ -1,0 +1,28 @@
+@import '../../media/colours';
+
+.section {
+  margin-bottom: 1.5rem;
+
+  .sectionTitle {
+    position: relative;
+    font-size: 1.25rem;
+    margin: 0;
+    line-height: 2.5rem;
+    border-bottom: 2px solid $border-light;
+
+    .expandCollapseArrow {
+      position: absolute;
+      right: 0.5rem;
+      transform: rotate(90deg);
+      transition: transform 0.2s linear;
+
+      &.expanded {
+        transform: rotate(-90deg);
+      }
+
+      &:after {
+        content: '\2023';
+      }
+    }
+  }
+}

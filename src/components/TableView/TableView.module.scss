@@ -1,0 +1,59 @@
+@import '../../media/colours';
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+  display: none;
+
+  .thead,
+  .tbody {
+    width: 100%;
+    text-align: left;
+
+    .th {
+      line-height: 2rem;
+      padding: 0;
+      position: relative;
+
+      .columnName {
+        margin-right: 1rem;
+      }
+
+      .columnSort {
+        position: absolute;
+
+        &:after {
+          content: '\21C5';
+          font-weight: normal;
+        }
+      }
+    }
+
+    .tr {
+      &:nth-child(even) {
+        background-color: $light-grey;
+      }
+
+      .td {
+        padding: 0;
+        line-height: 2rem;
+        position: relative;
+        vertical-align: middle;
+
+        &:first-child {
+          padding-left: 2.5rem;
+        }
+
+        .img {
+          margin: 0;
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &.expanded {
+    display: table;
+  }
+}
