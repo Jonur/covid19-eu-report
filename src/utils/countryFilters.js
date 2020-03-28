@@ -6,13 +6,19 @@ export const getCountryFlagURL = countryName =>
     ? `https://www.countryflags.io/${EU_FLAGS[countryName].country_code}/flat/32.png`
     : '';
 
-export const getCountiesTotalDeathsToDate = countriesStats =>
-  Object.keys(countriesStats).map(country => ({
+export const getCountiesTotalDeathsToDate = countriesStats => {
+  const filteredStats = Object.keys(countriesStats).map(country => ({
     countryName: country,
     flagSrc: getCountryFlagURL(country),
     totalDeaths:
       countriesStats[country][countriesStats[country].length - 1].deaths || 0,
   }));
+
+  return chain(filteredStats)
+    .sortBy('totalDeaths')
+    .reverse()
+    .value();
+};
 
 export const getSortedColumns = (countriesData, column, columnStatus) =>
   columnStatus
