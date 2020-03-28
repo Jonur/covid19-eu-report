@@ -31,6 +31,8 @@ export const EU_COUNTRIES = [
   'United Kingdom',
 ];
 
+export const FORMER_EU_COUNTRIES = ['United Kingdom'];
+
 export const EU_FLAGS = {
   Austria: { country_code: 'at' },
   Belgium: { country_code: 'be' },

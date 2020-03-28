@@ -83,6 +83,13 @@ const TableView = ({
           </tr>
         ))}
       </tbody>
+      <tfoot className={s.tfoot}>
+        <tr className={s.tr}>
+          <td colSpan="2" className={classNames(s.td, s.formerEUcountry)}>
+            * Former EU member state
+          </td>
+        </tr>
+      </tfoot>
     </table>
   );
 };

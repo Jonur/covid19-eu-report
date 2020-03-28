@@ -1,5 +1,9 @@
 import { chain, mapValues } from 'lodash';
-import { EU_FLAGS, MONTHS } from '../definitions/constants';
+import {
+  EU_FLAGS,
+  FORMER_EU_COUNTRIES,
+  MONTHS,
+} from '../definitions/constants';
 
 export const getCountryFlagURL = countryName =>
   EU_FLAGS?.[countryName]?.country_code
@@ -36,8 +40,12 @@ export const getCountiesTotalsDate = countriesStats => {
       totalRecovered -
       getTotalPropOfCountryYesterday(countriesStats[country], 'recovered');
 
+    const countryNameLabel = `${
+      FORMER_EU_COUNTRIES.includes(country) ? `${country}*` : country
+    }`;
+
     return {
-      countryName: country,
+      countryName: countryNameLabel,
       flagSrc: getCountryFlagURL(country),
       totalDeaths,
       deathsLast24h,

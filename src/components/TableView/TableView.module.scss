@@ -6,7 +6,8 @@
   display: none;
 
   .thead,
-  .tbody {
+  .tbody,
+  .tfoot {
     width: 100%;
     text-align: left;
 
@@ -59,6 +60,11 @@
           &.positive {
             color: $app-success;
           }
+        }
+
+        &.formerEUcountry {
+          font-size: 0.875rem;
+          padding: 0;
         }
       }
     }
