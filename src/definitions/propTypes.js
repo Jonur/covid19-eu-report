@@ -23,6 +23,7 @@ export const TABLE_VIEW_DATA = {
   data: arrayOf(
     shape({
       countryName: string.isRequired,
+      deathsLast24h: number.isRequired,
       flagSrc: string.isRequired,
       totalDeaths: number.isRequired,
     }).isRequired
@@ -35,4 +36,5 @@ export const TABLE_STAT_SECTION = {
   ...TABLE_VIEW_DATA,
   ariaLabelledBy: string.isRequired,
   sectionTitle: string.isRequired,
+  sectionSubtitle: string.isRequired,
 };

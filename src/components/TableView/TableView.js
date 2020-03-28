@@ -8,6 +8,7 @@ const TableView = ({
   countryStatColumnName,
   data,
   dataProp,
+  dataPropSecondary,
   displayStatus,
   title,
 }) => {
@@ -67,7 +68,14 @@ const TableView = ({
               />
               <span>{country.countryName}</span>
             </td>
-            <td className={s.td}>{country[dataProp]}</td>
+            <td className={s.td}>
+              {country[dataProp]}
+              {!!country[dataPropSecondary] && (
+                <span
+                  className={s.secondaryInfo}
+                >{`(+${country[dataPropSecondary]})`}</span>
+              )}
+            </td>
           </tr>
         ))}
       </tbody>

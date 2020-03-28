@@ -13,9 +13,11 @@ const App = ({ euCovidData, lastUpdate }) => {
         <TableStatSection
           ariaLabelledBy="total-deaths-title"
           sectionTitle="Total deaths"
+          sectionSubtitle="(+ COVID-19 caused deaths in the past 24 hours)"
           countryStatColumnName="Deaths"
           data={countiesTotalDeathsToDate}
           dataProp="totalDeaths"
+          dataPropSecondary="deathsLast24h"
           title="Total deaths table"
         />
       </main>

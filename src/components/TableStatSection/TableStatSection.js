@@ -9,7 +9,9 @@ const TableStatSection = ({
   countryStatColumnName,
   data,
   dataProp,
+  dataPropSecondary,
   sectionTitle,
+  sectionSubtitle,
   title,
 }) => {
   const [expandedSection, setExpandedSection] = useState(true);
@@ -22,6 +24,7 @@ const TableStatSection = ({
         className={s.sectionTitle}
       >
         {sectionTitle}
+        <span className={s.last24hInfo}>{sectionSubtitle}</span>
         <span
           className={classNames(s.expandCollapseArrow, {
             [s.expanded]: expandedSection,
@@ -32,6 +35,7 @@ const TableStatSection = ({
         countryStatColumnName={countryStatColumnName}
         data={data}
         dataProp={dataProp}
+        dataPropSecondary={dataPropSecondary}
         displayStatus={expandedSection}
         title={title}
       />

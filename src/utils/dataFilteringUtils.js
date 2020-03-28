@@ -7,12 +7,21 @@ export const getCountryFlagURL = countryName =>
     : '';
 
 export const getCountiesTotalDeathsToDate = countriesStats => {
-  const filteredStats = Object.keys(countriesStats).map(country => ({
-    countryName: country,
-    flagSrc: getCountryFlagURL(country),
-    totalDeaths:
-      countriesStats[country][countriesStats[country].length - 1].deaths || 0,
-  }));
+  const filteredStats = Object.keys(countriesStats).map(country => {
+    const totalDeaths =
+      countriesStats[country][countriesStats[country].length - 1]?.deaths || 0;
+    const deathsLast24h =
+      totalDeaths -
+      (countriesStats[country][countriesStats[country].length - 2]?.deaths ||
+        0);
+
+    return {
+      countryName: country,
+      deathsLast24h,
+      flagSrc: getCountryFlagURL(country),
+      totalDeaths,
+    };
+  });
 
   return chain(filteredStats)
     .sortBy('totalDeaths')

@@ -49,6 +49,12 @@
           position: absolute;
           left: 0;
         }
+
+        .secondaryInfo {
+          color: $app-danger;
+          margin-left: 0.25rem;
+          font-size: 0.875rem;
+        }
       }
     }
   }
