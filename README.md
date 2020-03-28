@@ -1,3 +1,15 @@
+# About
+
+This project is a simple visualisation of the cases and spread status of the COVID-19 pandemic in the member states of the European Union.
+
+## Data
+
+COVID-19: [@pomber's](https://github.com/pomber) [covid19](https://pomber.github.io/covid19/timeseries.json) repository
+
+Country Flags: [countryflags.io](https://www.countryflags.io)
+
+# Build
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
