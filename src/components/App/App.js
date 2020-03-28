@@ -1,10 +1,10 @@
 import React from 'react';
 import { APP_DATA } from '../../definitions/propTypes';
 import { Header, TableStatSection } from '..';
-import { getCountiesTotalDeathsToDate } from '../../utils/dataFilteringUtils';
+import { getCountiesTotalsDate } from '../../utils/dataFilteringUtils';
 
 const App = ({ euCovidData, lastUpdate }) => {
-  const countiesTotalDeathsToDate = getCountiesTotalDeathsToDate(euCovidData);
+  const countiesTotalDeathsToDate = getCountiesTotalsDate(euCovidData);
 
   return (
     <>
@@ -19,6 +19,27 @@ const App = ({ euCovidData, lastUpdate }) => {
           dataProp="totalDeaths"
           dataPropSecondary="deathsLast24h"
           title="Total deaths table"
+        />
+        <TableStatSection
+          ariaLabelledBy="total-cases-title"
+          sectionTitle="Total cases"
+          sectionSubtitle="(+ COVID-19 confirmed cases in the past 24 hours)"
+          countryStatColumnName="Cases"
+          data={countiesTotalDeathsToDate}
+          dataProp="totalCases"
+          dataPropSecondary="casesLast24h"
+          title="Total confirmed cases table"
+        />
+        <TableStatSection
+          ariaLabelledBy="total-recovered-title"
+          sectionTitle="Patients recovered"
+          sectionSubtitle="(+ COVID-19 recovered patients in the past 24 hours)"
+          countryStatColumnName="Recovered"
+          data={countiesTotalDeathsToDate}
+          dataProp="totalRecovered"
+          dataPropSecondary="recoveredLast24h"
+          title="Recovered patients table"
+          positive
         />
       </main>
     </>

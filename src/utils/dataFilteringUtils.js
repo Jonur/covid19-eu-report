@@ -6,20 +6,45 @@ export const getCountryFlagURL = countryName =>
     ? `https://www.countryflags.io/${EU_FLAGS[countryName].country_code}/flat/32.png`
     : '';
 
-export const getCountiesTotalDeathsToDate = countriesStats => {
+export const getTotalPropOfCountry = (countryData, prop) =>
+  countryData[countryData.length - 1]?.[prop] || 0;
+
+export const getTotalPropOfCountryYesterday = (countryData, prop) =>
+  countryData[countryData.length - 2]?.[prop] || 0;
+
+export const getCountiesTotalsDate = countriesStats => {
   const filteredStats = Object.keys(countriesStats).map(country => {
-    const totalDeaths =
-      countriesStats[country][countriesStats[country].length - 1]?.deaths || 0;
+    const totalDeaths = getTotalPropOfCountry(
+      countriesStats[country],
+      'deaths'
+    );
     const deathsLast24h =
       totalDeaths -
-      (countriesStats[country][countriesStats[country].length - 2]?.deaths ||
-        0);
+      getTotalPropOfCountryYesterday(countriesStats[country], 'deaths');
+    const totalCases = getTotalPropOfCountry(
+      countriesStats[country],
+      'confirmed'
+    );
+    const casesLast24h =
+      totalCases -
+      getTotalPropOfCountryYesterday(countriesStats[country], 'confirmed');
+    const totalRecovered = getTotalPropOfCountry(
+      countriesStats[country],
+      'recovered'
+    );
+    const recoveredLast24h =
+      totalRecovered -
+      getTotalPropOfCountryYesterday(countriesStats[country], 'recovered');
 
     return {
       countryName: country,
-      deathsLast24h,
       flagSrc: getCountryFlagURL(country),
       totalDeaths,
+      deathsLast24h,
+      totalCases,
+      casesLast24h,
+      totalRecovered,
+      recoveredLast24h,
     };
   });
 

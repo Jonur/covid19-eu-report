@@ -54,6 +54,10 @@
           color: $app-danger;
           margin-left: 0.25rem;
           font-size: 0.875rem;
+
+          &.positive {
+            color: $app-success;
+          }
         }
       }
     }

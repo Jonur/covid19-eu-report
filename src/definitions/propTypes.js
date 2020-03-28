@@ -23,18 +23,15 @@ export const TABLE_VIEW_DATA = {
   data: arrayOf(
     shape({
       countryName: string.isRequired,
-      deathsLast24h: number.isRequired,
       flagSrc: string.isRequired,
+      deathsLast24h: number.isRequired,
       totalDeaths: number.isRequired,
+      totalCases: number.isRequired,
+      casesLast24h: number.isRequired,
+      totalRecovered: number.isRequired,
+      recoveredLast24h: number.isRequired,
     }).isRequired
   ).isRequired,
   dataProp: string.isRequired,
   title: string.isRequired,
-};
-
-export const TABLE_STAT_SECTION = {
-  ...TABLE_VIEW_DATA,
-  ariaLabelledBy: string.isRequired,
-  sectionTitle: string.isRequired,
-  sectionSubtitle: string.isRequired,
 };

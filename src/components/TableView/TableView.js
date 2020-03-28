@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { bool } from 'prop-types';
 import classNames from 'classnames';
 import { sortCountresDataByColumn } from '../../utils/dataFilteringUtils';
 import { TABLE_VIEW_DATA } from '../../definitions/propTypes';
@@ -11,6 +12,7 @@ const TableView = ({
   dataPropSecondary,
   displayStatus,
   title,
+  positive,
 }) => {
   const [countriesData, setCountriesData] = useState(data);
   const [sortedColumns, setSortedColumns] = useState({
@@ -72,7 +74,9 @@ const TableView = ({
               {country[dataProp]}
               {!!country[dataPropSecondary] && (
                 <span
-                  className={s.secondaryInfo}
+                  className={classNames(s.secondaryInfo, {
+                    [s.positive]: positive,
+                  })}
                 >{`(+${country[dataPropSecondary]})`}</span>
               )}
             </td>
@@ -83,6 +87,13 @@ const TableView = ({
   );
 };
 
-TableView.propTypes = TABLE_VIEW_DATA;
+TableView.propTypes = {
+  ...TABLE_VIEW_DATA,
+  positive: bool,
+};
+
+TableView.defaultProps = {
+  positive: false,
+};
 
 export default TableView;

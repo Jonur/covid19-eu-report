@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { bool, string } from 'prop-types';
 import classNames from 'classnames';
-import { TABLE_STAT_SECTION } from '../../definitions/propTypes';
+import { TABLE_VIEW_DATA } from '../../definitions/propTypes';
 import { TableView } from '..';
 import s from './TableStatSection.module.scss';
 
@@ -13,8 +14,9 @@ const TableStatSection = ({
   sectionTitle,
   sectionSubtitle,
   title,
+  positive,
 }) => {
-  const [expandedSection, setExpandedSection] = useState(true);
+  const [expandedSection, setExpandedSection] = useState(false);
 
   return (
     <section aria-labelledby={ariaLabelledBy} className={s.section}>
@@ -24,7 +26,9 @@ const TableStatSection = ({
         className={s.sectionTitle}
       >
         {sectionTitle}
-        <span className={s.last24hInfo}>{sectionSubtitle}</span>
+        <span className={classNames(s.last24hInfo, { [s.positive]: positive })}>
+          {sectionSubtitle}
+        </span>
         <span
           className={classNames(s.expandCollapseArrow, {
             [s.expanded]: expandedSection,
@@ -38,11 +42,22 @@ const TableStatSection = ({
         dataPropSecondary={dataPropSecondary}
         displayStatus={expandedSection}
         title={title}
+        positive={positive}
       />
     </section>
   );
 };
 
-TableStatSection.propTypes = TABLE_STAT_SECTION;
+TableStatSection.propTypes = {
+  ...TABLE_VIEW_DATA,
+  ariaLabelledBy: string.isRequired,
+  sectionTitle: string.isRequired,
+  sectionSubtitle: string.isRequired,
+  positive: bool,
+};
+
+TableStatSection.defaultProps = {
+  positive: false,
+};
 
 export default TableStatSection;
