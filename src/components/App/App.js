@@ -1,7 +1,8 @@
 import React from 'react';
 import { APP_DATA } from '../../definitions/propTypes';
-import { Header, TableStatSection } from '..';
+import { Footer, Header, TableStatSection } from '..';
 import { getCountiesTotalsDate } from '../../utils/dataFilteringUtils';
+import s from './App.module.scss';
 
 const App = ({ euCovidData, lastUpdate }) => {
   const countiesTotalDeathsToDate = getCountiesTotalsDate(euCovidData);
@@ -9,7 +10,7 @@ const App = ({ euCovidData, lastUpdate }) => {
   return (
     <>
       <Header lastUpdate={lastUpdate} />
-      <main aria-label="EU COVID-19 Charts">
+      <main aria-label="EU COVID-19 Charts" className={s.statWrapper}>
         <TableStatSection
           ariaLabelledBy="total-deaths-title"
           sectionTitle="Total deaths"
@@ -42,6 +43,7 @@ const App = ({ euCovidData, lastUpdate }) => {
           positive
         />
       </main>
+      <Footer />
     </>
   );
 };
