@@ -1,5 +1,5 @@
 import { chain, mapValues } from 'lodash';
-import { EU_FLAGS } from '../definitions/constants';
+import { EU_FLAGS, MONTHS } from '../definitions/constants';
 
 export const getCountryFlagURL = countryName =>
   EU_FLAGS?.[countryName]?.country_code
@@ -60,4 +60,17 @@ export const sortCountresDataByColumn = (
 
   setSortedColumns(sortedColumnsStatii);
   setCountriesData(sortedColumnsResult);
+};
+
+export const getLastUpdateFromData = (data = {}) => {
+  const firstCountryEntry = Object.values(data)[0];
+  const dateFromData =
+    firstCountryEntry?.[firstCountryEntry.length - 1]?.date || '';
+
+  if (dateFromData) {
+    const date = new Date(dateFromData);
+    return `${date.getDate()} ${MONTHS[date.getMonth()]} ${date.getFullYear()}`;
+  }
+
+  return '';
 };

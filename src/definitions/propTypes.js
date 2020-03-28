@@ -9,6 +9,11 @@ export const EU_COUNTRY_COVID19_DATA = arrayOf(
   }).isRequired
 ).isRequired;
 
+export const APP_DATA = {
+  ...EU_COUNTRY_COVID19_DATA,
+  lastUpdate: string.isRequired,
+};
+
 export const EU_COVID19_DATA = {
   euCovidData: objectOf(EU_COUNTRY_COVID19_DATA).isRequired,
 };

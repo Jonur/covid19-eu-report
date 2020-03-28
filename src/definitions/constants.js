@@ -61,3 +61,18 @@ export const EU_FLAGS = {
   Sweden: { country_code: 'se' },
   'United Kingdom': { country_code: 'gb' },
 };
+
+export const MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];

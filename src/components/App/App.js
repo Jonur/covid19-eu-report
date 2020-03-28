@@ -1,14 +1,14 @@
 import React from 'react';
-import { EU_COVID19_DATA } from '../../definitions/propTypes';
+import { APP_DATA } from '../../definitions/propTypes';
 import { Header, TableStatSection } from '..';
-import { getCountiesTotalDeathsToDate } from '../../utils/countryFilters';
+import { getCountiesTotalDeathsToDate } from '../../utils/dataFilteringUtils';
 
-const App = ({ euCovidData }) => {
+const App = ({ euCovidData, lastUpdate }) => {
   const countiesTotalDeathsToDate = getCountiesTotalDeathsToDate(euCovidData);
 
   return (
     <>
-      <Header />
+      <Header lastUpdate={lastUpdate} />
       <main aria-label="EU COVID-19 Charts">
         <TableStatSection
           ariaLabelledBy="total-deaths-title"
@@ -23,6 +23,6 @@ const App = ({ euCovidData }) => {
   );
 };
 
-App.propTypes = EU_COVID19_DATA;
+App.propTypes = APP_DATA;
 
 export default App;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { sortCountresDataByColumn } from '../../utils/countryFilters';
+import { sortCountresDataByColumn } from '../../utils/dataFilteringUtils';
 import { TABLE_VIEW_DATA } from '../../definitions/propTypes';
 import s from './TableView.module.scss';
 
