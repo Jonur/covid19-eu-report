@@ -13,6 +13,16 @@ const Footer = () => (
     >
       Jonur
     </a>
+    {` - `}
+    <a
+      className={s.link}
+      rel="noopener noreferrer"
+      target="_blank"
+      href="https://github.com/Jonur/covid19-eu-report/blob/master/PrivacyPolicy.md"
+      alt="Application Privacy Policy"
+    >
+      Privacy Policy
+    </a>
   </footer>
 );
 
