@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "^/eufavicon.png$",
+      "dest": "/eufavicon.png"
+    },
+    {
+      "src": "^/european-union.png$",
+      "dest": "/european-union.png"
+    },
+    {
+      "src": "^/robots.txt$",
+      "dest": "/robots.txt"
+    },
+    {
+      "src": ".*",
+      "dest": "/index.html"
+    }
+  ]
+}
