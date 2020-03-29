@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders the App component correctly 1`] = `
+<div>
+  <header
+    class="appHeader"
+  >
+    <img
+      alt="EU flag"
+      src="european-union.png"
+      title="EU flag"
+    />
+    <h1
+      class="appTitle"
+    >
+      EU COVID-19 Country Statistics
+    </h1>
+    <p
+      class="lastUpdate"
+    >
+      Data collected on 23 May 2020
+    </p>
+  </header>
+  <main
+    aria-label="EU COVID-19 Charts"
+    class="statWrapper"
+  >
+    <section
+      aria-labelledby="total-deaths-title"
+      class="section"
+    >
+      <h2
+        class="sectionTitle"
+        id="total-deaths-title"
+      >
+        Total deaths
+        <span
+          class="last24hInfo"
+        >
+          (+ COVID-19 caused deaths in the past 24 hours)
+        </span>
+        <span
+          class="expandCollapseArrow"
+        />
+      </h2>
+      <table
+        aria-label="Total deaths table"
+        class="table"
+      >
+        <thead
+          class="thead"
+        >
+          <tr>
+            <th
+              class="th"
+            >
+              <span
+                class="columnName"
+              >
+                Country
+              </span>
+              <span
+                class="columnSort"
+              />
+            </th>
+            <th
+              class="th"
+            >
+              <span
+                class="columnName"
+              >
+                Deaths
+              </span>
+              <span
+                class="columnSort"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="tbody"
+        />
+        <tfoot
+          class="tfoot"
+        >
+          <tr
+            class="tr"
+          >
+            <td
+              class="td formerEUcountry"
+              colspan="2"
+            >
+              * Former EU member state
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <section
+      aria-labelledby="total-cases-title"
+      class="section"
+    >
+      <h2
+        class="sectionTitle"
+        id="total-cases-title"
+      >
+        Total cases
+        <span
+          class="last24hInfo"
+        >
+          (+ COVID-19 confirmed cases in the past 24 hours)
+        </span>
+        <span
+          class="expandCollapseArrow"
+        />
+      </h2>
+      <table
+        aria-label="Total confirmed cases table"
+        class="table"
+      >
+        <thead
+          class="thead"
+        >
+          <tr>
+            <th
+              class="th"
+            >
+              <span
+                class="columnName"
+              >
+                Country
+              </span>
+              <span
+                class="columnSort"
+              />
+            </th>
+            <th
+              class="th"
+            >
+              <span
+                class="columnName"
+              >
+                Cases
+              </span>
+              <span
+                class="columnSort"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="tbody"
+        />
+        <tfoot
+          class="tfoot"
+        >
+          <tr
+            class="tr"
+          >
+            <td
+              class="td formerEUcountry"
+              colspan="2"
+            >
+              * Former EU member state
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <section
+      aria-labelledby="total-recovered-title"
+      class="section"
+    >
+      <h2
+        class="sectionTitle"
+        id="total-recovered-title"
+      >
+        Patients recovered
+        <span
+          class="last24hInfo positive"
+        >
+          (+ COVID-19 recovered patients in the past 24 hours)
+        </span>
+        <span
+          class="expandCollapseArrow"
+        />
+      </h2>
+      <table
+        aria-label="Recovered patients table"
+        class="table"
+      >
+        <thead
+          class="thead"
+        >
+          <tr>
+            <th
+              class="th"
+            >
+              <span
+                class="columnName"
+              >
+                Country
+              </span>
+              <span
+                class="columnSort"
+              />
+            </th>
+            <th
+              class="th"
+            >
+              <span
+                class="columnName"
+              >
+                Recovered
+              </span>
+              <span
+                class="columnSort"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="tbody"
+        />
+        <tfoot
+          class="tfoot"
+        >
+          <tr
+            class="tr"
+          >
+            <td
+              class="td formerEUcountry"
+              colspan="2"
+            >
+              * Former EU member state
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+  </main>
+  <footer
+    class="globalFooter"
+  >
+    ©
+    2020 - 
+    <a
+      alt="Jonur on Github"
+      class="link"
+      href="https://github.com/Jonur"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Jonur
+    </a>
+     - 
+    <a
+      alt="Application Privacy Policy"
+      class="link"
+      href="https://github.com/Jonur/covid19-eu-report/blob/master/PrivacyPolicy.md"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Privacy Policy
+    </a>
+  </footer>
+</div>
+`;
