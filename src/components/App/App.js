@@ -5,7 +5,7 @@ import { getCountiesTotalsDate } from '../../utils/dataFilteringUtils';
 import s from './App.module.scss';
 
 const App = ({ euCovidData, lastUpdate }) => {
-  const countiesTotalDeathsToDate = getCountiesTotalsDate(euCovidData);
+  const countiesTotalsToDate = getCountiesTotalsDate(euCovidData);
 
   return (
     <>
@@ -16,7 +16,7 @@ const App = ({ euCovidData, lastUpdate }) => {
           sectionTitle="Total deaths"
           sectionSubtitle="(+ COVID-19 caused deaths in the past 24 hours)"
           countryStatColumnName="Deaths"
-          data={countiesTotalDeathsToDate}
+          data={countiesTotalsToDate}
           dataProp="totalDeaths"
           dataPropSecondary="deathsLast24h"
           title="Total deaths table"
@@ -26,7 +26,7 @@ const App = ({ euCovidData, lastUpdate }) => {
           sectionTitle="Total cases"
           sectionSubtitle="(+ COVID-19 confirmed cases in the past 24 hours)"
           countryStatColumnName="Cases"
-          data={countiesTotalDeathsToDate}
+          data={countiesTotalsToDate}
           dataProp="totalCases"
           dataPropSecondary="casesLast24h"
           title="Total confirmed cases table"
@@ -36,7 +36,7 @@ const App = ({ euCovidData, lastUpdate }) => {
           sectionTitle="Patients recovered"
           sectionSubtitle="(+ COVID-19 recovered patients in the past 24 hours)"
           countryStatColumnName="Recovered"
-          data={countiesTotalDeathsToDate}
+          data={countiesTotalsToDate}
           dataProp="totalRecovered"
           dataPropSecondary="recoveredLast24h"
           title="Recovered patients table"
