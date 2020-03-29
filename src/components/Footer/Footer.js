@@ -5,6 +5,7 @@ const Footer = () => (
   <footer className={s.globalFooter}>
     &copy;{`${new Date().getFullYear()} - `}
     <a
+      className={s.link}
       rel="noopener noreferrer"
       target="_blank"
       href="https://github.com/Jonur"
