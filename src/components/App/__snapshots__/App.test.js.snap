@@ -43,58 +43,6 @@ exports[`App renders the App component correctly 1`] = `
           class="expandCollapseArrow"
         />
       </h2>
-      <table
-        aria-label="Total deaths table"
-        class="table"
-      >
-        <thead
-          class="thead"
-        >
-          <tr>
-            <th
-              class="th"
-            >
-              <span
-                class="columnName"
-              >
-                Country
-              </span>
-              <span
-                class="columnSort"
-              />
-            </th>
-            <th
-              class="th"
-            >
-              <span
-                class="columnName"
-              >
-                Deaths
-              </span>
-              <span
-                class="columnSort"
-              />
-            </th>
-          </tr>
-        </thead>
-        <tbody
-          class="tbody"
-        />
-        <tfoot
-          class="tfoot"
-        >
-          <tr
-            class="tr"
-          >
-            <td
-              class="td formerEUcountry"
-              colspan="2"
-            >
-              * Former EU member state
-            </td>
-          </tr>
-        </tfoot>
-      </table>
     </section>
     <section
       aria-labelledby="total-cases-title"
@@ -114,58 +62,6 @@ exports[`App renders the App component correctly 1`] = `
           class="expandCollapseArrow"
         />
       </h2>
-      <table
-        aria-label="Total confirmed cases table"
-        class="table"
-      >
-        <thead
-          class="thead"
-        >
-          <tr>
-            <th
-              class="th"
-            >
-              <span
-                class="columnName"
-              >
-                Country
-              </span>
-              <span
-                class="columnSort"
-              />
-            </th>
-            <th
-              class="th"
-            >
-              <span
-                class="columnName"
-              >
-                Cases
-              </span>
-              <span
-                class="columnSort"
-              />
-            </th>
-          </tr>
-        </thead>
-        <tbody
-          class="tbody"
-        />
-        <tfoot
-          class="tfoot"
-        >
-          <tr
-            class="tr"
-          >
-            <td
-              class="td formerEUcountry"
-              colspan="2"
-            >
-              * Former EU member state
-            </td>
-          </tr>
-        </tfoot>
-      </table>
     </section>
     <section
       aria-labelledby="total-recovered-title"
@@ -185,58 +81,6 @@ exports[`App renders the App component correctly 1`] = `
           class="expandCollapseArrow"
         />
       </h2>
-      <table
-        aria-label="Recovered patients table"
-        class="table"
-      >
-        <thead
-          class="thead"
-        >
-          <tr>
-            <th
-              class="th"
-            >
-              <span
-                class="columnName"
-              >
-                Country
-              </span>
-              <span
-                class="columnSort"
-              />
-            </th>
-            <th
-              class="th"
-            >
-              <span
-                class="columnName"
-              >
-                Recovered
-              </span>
-              <span
-                class="columnSort"
-              />
-            </th>
-          </tr>
-        </thead>
-        <tbody
-          class="tbody"
-        />
-        <tfoot
-          class="tfoot"
-        >
-          <tr
-            class="tr"
-          >
-            <td
-              class="td formerEUcountry"
-              colspan="2"
-            >
-              * Former EU member state
-            </td>
-          </tr>
-        </tfoot>
-      </table>
     </section>
   </main>
   <footer

@@ -35,15 +35,16 @@ const TableStatSection = ({
           })}
         />
       </h2>
-      <TableView
-        countryStatColumnName={countryStatColumnName}
-        data={data}
-        dataProp={dataProp}
-        dataPropSecondary={dataPropSecondary}
-        displayStatus={expandedSection}
-        title={title}
-        positive={positive}
-      />
+      {expandedSection && (
+        <TableView
+          countryStatColumnName={countryStatColumnName}
+          data={data}
+          dataProp={dataProp}
+          dataPropSecondary={dataPropSecondary}
+          title={title}
+          positive={positive}
+        />
+      )}
     </section>
   );
 };

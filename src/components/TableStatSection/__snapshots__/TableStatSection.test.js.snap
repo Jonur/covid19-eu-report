@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableStatSection renders the TableStatSection component correctly 1`] = `
+<div>
+  <section
+    aria-labelledby="some-id"
+    class="section"
+  >
+    <h2
+      class="sectionTitle"
+      id="some-id"
+    >
+      Total cases
+      <span
+        class="last24hInfo"
+      >
+        (+ ...)
+      </span>
+      <span
+        class="expandCollapseArrow"
+      />
+    </h2>
+  </section>
+</div>
+`;
+
+exports[`TableStatSection renders the TableStatSection component with positive styled labels 1`] = `
+<div>
+  <section
+    aria-labelledby="some-id"
+    class="section"
+  >
+    <h2
+      class="sectionTitle"
+      id="some-id"
+    >
+      Total cases
+      <span
+        class="last24hInfo positive"
+      >
+        (+ ...)
+      </span>
+      <span
+        class="expandCollapseArrow"
+      />
+    </h2>
+  </section>
+</div>
+`;

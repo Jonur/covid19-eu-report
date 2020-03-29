@@ -3,7 +3,7 @@
 .table {
   width: 100%;
   border-spacing: 0;
-  display: none;
+  margin-bottom: 2rem;
 
   .thead,
   .tbody,
@@ -68,10 +68,5 @@
         }
       }
     }
-  }
-
-  &.expanded {
-    display: table;
-    margin-bottom: 2rem;
   }
 }

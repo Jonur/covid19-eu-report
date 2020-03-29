@@ -10,7 +10,6 @@ const TableView = ({
   data,
   dataProp,
   dataPropSecondary,
-  displayStatus,
   title,
   positive,
 }) => {
@@ -21,10 +20,7 @@ const TableView = ({
   });
 
   return (
-    <table
-      className={classNames(s.table, { [s.expanded]: displayStatus })}
-      aria-label={title}
-    >
+    <table className={s.table} aria-label={title}>
       <thead className={s.thead}>
         <tr>
           <th
