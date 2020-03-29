@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { bool } from 'prop-types';
 import classNames from 'classnames';
-import { sortCountresDataByColumn } from '../../utils/dataFilteringUtils';
+import { sortCountriesDataByColumn } from '../../utils/dataFilteringUtils';
 import { TABLE_VIEW_DATA } from '../../definitions/propTypes';
 import s from './TableView.module.scss';
 
@@ -26,7 +26,7 @@ const TableView = ({
           <th
             className={s.th}
             onClick={() =>
-              sortCountresDataByColumn(
+              sortCountriesDataByColumn(
                 'countryName',
                 countriesData,
                 sortedColumns,
@@ -41,7 +41,7 @@ const TableView = ({
           <th
             className={s.th}
             onClick={() =>
-              sortCountresDataByColumn(
+              sortCountriesDataByColumn(
                 dataProp,
                 countriesData,
                 sortedColumns,

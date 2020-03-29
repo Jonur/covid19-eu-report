@@ -81,8 +81,8 @@ export const getSortedColumnsStatii = (
   [column]: !columnStatus,
 });
 
-export const sortCountresDataByColumn = (
-  column = '',
+export const sortCountriesDataByColumn = (
+  column,
   countriesData,
   sortedColumns,
   setSortedColumns,
