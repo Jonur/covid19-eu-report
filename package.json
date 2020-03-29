@@ -1,42 +1,59 @@
 {
   "name": "covid19-eu-report",
   "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "axios": "^0.19.2",
-    "classnames": "^2.2.6",
-    "lodash": "^4.17.15",
-    "node-sass": "^4.13.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+  "private": false,
+  "description": "EU stats report on COVID-19",
+  "bugs": {
+    "url": "https://github.com/Jonur/covid19-eu-report/issues",
+    "email": "d.k.damilos@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jonur/covid19-eu-report.git"
+  },
+  "license": "ISC",
+  "author": {
+    "name": "Dimitris Damilos",
+    "email": "d.k.damilos@gmail.com",
+    "url": "https://github.com/Jonur"
   },
   "scripts": {
-    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .js src/"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "lint": "eslint --ext .js src/",
+    "start": "react-scripts start",
+    "tc": "react-scripts test --coverage",
+    "test": "react-scripts test",
+    "tw": "react-scripts test --watch"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "node-sass": "^4.13.1",
     "prop-types": "^15.7.2"
   }
 }
