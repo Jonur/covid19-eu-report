@@ -32,6 +32,8 @@
     }
 
     .tr {
+      border-radius: 2px;
+
       &:nth-child(even) {
         background-color: $light-grey;
       }
@@ -41,6 +43,7 @@
         line-height: 2rem;
         position: relative;
         vertical-align: middle;
+        border-radius: 2px;
 
         &:first-child {
           padding-left: 2.5rem;
