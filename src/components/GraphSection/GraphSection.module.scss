@@ -5,6 +5,35 @@
   max-width: 850px;
   margin: 0 auto 1.5rem;
 
+  .displayOptions {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+
+    .displayDeaths,
+    .displayCofirmed,
+    .displayRecovered {
+      display: flex;
+      font-size: 0.875rem;
+      padding: 0.5rem;
+      margin-right: 0.175rem;
+      border-radius: 2px;
+    }
+
+    .displayDeaths {
+      color: $app-white;
+      background-color: $app-danger-light;
+    }
+    .displayCofirmed {
+      color: $font-dark;
+      background-color: $app-warning-light;
+    }
+    .displayRecovered {
+      color: $font-dark;
+      background-color: $app-success-light;
+    }
+  }
+
   .graphData {
     display: grid;
     grid-template-columns: 80px auto;

@@ -26,32 +26,47 @@ const GraphSection = ({
         setExpandedSection={setExpandedSection}
       />
       {expandedSection && (
-        <dl className={s.graphData}>
-          {Object.keys(graphData).map(date => (
-            <Fragment key={date}>
-              <dt className={s.graphDateEntry}>
-                {getHumanFormattedDate(date)}
-              </dt>
-              <dd className={s.graphDateData}>
-                <GraphSectionLine
-                  className={s.danger}
-                  self={graphData[date].deaths}
-                  total={totals.deaths}
-                />
-                <GraphSectionLine
-                  className={s.warning}
-                  self={graphData[date].confirmed}
-                  total={totals.confirmed}
-                />
-                <GraphSectionLine
-                  className={s.success}
-                  self={graphData[date].recovered}
-                  total={totals.recovered}
-                />
-              </dd>
-            </Fragment>
-          ))}
-        </dl>
+        <>
+          <div className={s.displayOptions}>
+            <label className={s.displayDeaths}>
+              <input name="displayDeaths" type="checkbox" /> <span>Deaths</span>
+            </label>
+            <label className={s.displayCofirmed}>
+              <input name="displayConfirmed" type="checkbox" />{' '}
+              <span>Confirmed cases</span>
+            </label>
+            <label className={s.displayRecovered}>
+              <input name="displayRecovered" type="checkbox" />{' '}
+              <span>Recovered</span>
+            </label>
+          </div>
+          <dl className={s.graphData}>
+            {Object.keys(graphData).map(date => (
+              <Fragment key={date}>
+                <dt className={s.graphDateEntry}>
+                  {getHumanFormattedDate(date)}
+                </dt>
+                <dd className={s.graphDateData}>
+                  <GraphSectionLine
+                    className={s.danger}
+                    self={graphData[date].deaths}
+                    total={totals.deaths}
+                  />
+                  <GraphSectionLine
+                    className={s.warning}
+                    self={graphData[date].confirmed}
+                    total={totals.confirmed}
+                  />
+                  <GraphSectionLine
+                    className={s.success}
+                    self={graphData[date].recovered}
+                    total={totals.recovered}
+                  />
+                </dd>
+              </Fragment>
+            ))}
+          </dl>
+        </>
       )}
     </section>
   );
