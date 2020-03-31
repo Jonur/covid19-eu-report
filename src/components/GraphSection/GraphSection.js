@@ -14,6 +14,16 @@ const GraphSection = ({
   totals,
 }) => {
   const [expandedSection, setExpandedSection] = useState(false);
+  const [optionDisplayed, setOptionsDisplayed] = useState({
+    confirmed: true,
+    deaths: true,
+    recovered: true,
+  });
+  const handleChange = event =>
+    setOptionsDisplayed({
+      ...optionDisplayed,
+      [event.target.name]: event.target.checked,
+    });
 
   return (
     <section aria-labelledby={ariaLabelledBy} className={s.section}>
@@ -29,14 +39,33 @@ const GraphSection = ({
         <>
           <div className={s.displayOptions}>
             <label className={s.displayDeaths}>
-              <input name="displayDeaths" type="checkbox" /> <span>Deaths</span>
+              <input
+                name="deaths"
+                type="checkbox"
+                value={optionDisplayed.deaths}
+                checked={optionDisplayed.deaths}
+                onChange={handleChange}
+              />{' '}
+              <span>Deaths</span>
             </label>
             <label className={s.displayCofirmed}>
-              <input name="displayConfirmed" type="checkbox" />{' '}
+              <input
+                name="confirmed"
+                type="checkbox"
+                value={optionDisplayed.confirmed}
+                checked={optionDisplayed.confirmed}
+                onChange={handleChange}
+              />{' '}
               <span>Confirmed cases</span>
             </label>
             <label className={s.displayRecovered}>
-              <input name="displayRecovered" type="checkbox" />{' '}
+              <input
+                name="recovered"
+                type="checkbox"
+                value={optionDisplayed.recovered}
+                checked={optionDisplayed.recovered}
+                onChange={handleChange}
+              />{' '}
               <span>Recovered</span>
             </label>
           </div>
@@ -47,21 +76,27 @@ const GraphSection = ({
                   {getHumanFormattedDate(date)}
                 </dt>
                 <dd className={s.graphDateData}>
-                  <GraphSectionLine
-                    className={s.danger}
-                    self={graphData[date].deaths}
-                    total={totals.deaths}
-                  />
-                  <GraphSectionLine
-                    className={s.warning}
-                    self={graphData[date].confirmed}
-                    total={totals.confirmed}
-                  />
-                  <GraphSectionLine
-                    className={s.success}
-                    self={graphData[date].recovered}
-                    total={totals.recovered}
-                  />
+                  {optionDisplayed.deaths && (
+                    <GraphSectionLine
+                      className={s.danger}
+                      self={graphData[date].deaths}
+                      total={totals.deaths}
+                    />
+                  )}
+                  {optionDisplayed.confirmed && (
+                    <GraphSectionLine
+                      className={s.warning}
+                      self={graphData[date].confirmed}
+                      total={totals.confirmed}
+                    />
+                  )}
+                  {optionDisplayed.recovered && (
+                    <GraphSectionLine
+                      className={s.success}
+                      self={graphData[date].recovered}
+                      total={totals.recovered}
+                    />
+                  )}
                 </dd>
               </Fragment>
             ))}
