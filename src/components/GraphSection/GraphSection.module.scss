@@ -15,9 +15,12 @@
     .displayRecovered {
       display: flex;
       font-size: 0.875rem;
-      padding: 0.5rem;
-      margin-right: 0.175rem;
+      padding: 0.5rem 0.5rem 0.5rem 0.25rem;
       border-radius: 2px;
+
+      &:not(:last-child) {
+        margin-right: 0.175rem;
+      }
     }
 
     .displayDeaths {
