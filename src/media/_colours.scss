@@ -6,9 +6,29 @@ $font-dark: #2d2d2d;
 $font-light: #4e4e4e;
 $border-light: #4e4e4e;
 $app-white: #ffffff;
-$app-danger: #eb004c;
-$app-danger-light: #fd4d4d;
-$app-warning: #d27900;
-$app-warning-light: #fdc74d;
-$app-success: #00584b;
-$app-success-light: #89fd4d;
+
+$app-danger: #a60014;
+$app-warning: #b95500;
+$app-success: #007923;
+
+$accessible-danger-background: repeating-linear-gradient(
+  -45deg,
+  rgba($app-danger, 0.2),
+  rgba($app-danger, 0.2) 2px,
+  rgba($app-danger, 0.15) 2px,
+  rgba($app-danger, 0.15) 5px
+);
+$accessible-warning-background: repeating-linear-gradient(
+  0deg,
+  rgba($app-warning, 0.3),
+  rgba($app-warning, 0.3) 1px,
+  rgba($app-warning, 0.2) 1px,
+  rgba($app-warning, 0.2) 3px
+);
+$accessible-success-background: repeating-linear-gradient(
+  45deg,
+  rgba($app-success, 0.3),
+  rgba($app-success, 0.3) 2px,
+  rgba($app-success, 0.2) 2px,
+  rgba($app-success, 0.2) 5px
+);

@@ -49,7 +49,7 @@ const GraphSection = ({
               property="confirmed"
               optionDisplayed={optionDisplayed}
               handleChange={handleChange}
-              label="Confirmed cases"
+              label="Confirmed"
             />
             <GraphSectionOptionControl
               property="recovered"

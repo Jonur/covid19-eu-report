@@ -13,28 +13,32 @@
     .deathsDisplay,
     .confirmedDisplay,
     .recoveredDisplay {
+      flex: 1 1;
       display: flex;
       align-items: center;
       font-size: 0.875rem;
       padding: 0.5rem 0.5rem 0.5rem 0.25rem;
       border-radius: 2px;
+      color: $font-dark;
 
       &:not(:last-child) {
         margin-right: 0.175rem;
       }
+
+      > input,
+      span {
+        flex: 1 1 auto;
+      }
     }
 
     .deathsDisplay {
-      color: $app-white;
-      background-color: $app-danger-light;
+      background: $accessible-danger-background;
     }
     .confirmedDisplay {
-      color: $font-dark;
-      background-color: $app-warning-light;
+      background: $accessible-warning-background;
     }
     .recoveredDisplay {
-      color: $font-dark;
-      background-color: $app-success-light;
+      background: $accessible-success-background;
     }
   }
 
@@ -54,13 +58,13 @@
       font-size: 0.75rem;
       margin: 0;
       display: grid;
-      grid-auto-rows: 1rem;
+      grid-auto-rows: 1.25rem;
       row-gap: 0.175rem;
 
       .danger,
       .warning,
       .success {
-        line-height: 1rem;
+        line-height: 1.25rem;
         padding-left: 0.5rem;
         border-radius: 2px;
 
@@ -70,15 +74,15 @@
       }
 
       .danger {
-        background-color: $app-danger-light;
+        background: $accessible-danger-background;
       }
 
       .warning {
-        background-color: $app-warning-light;
+        background: $accessible-warning-background;
       }
 
       .success {
-        background-color: $app-success-light;
+        background: $accessible-success-background;
       }
     }
   }
