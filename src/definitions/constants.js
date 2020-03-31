@@ -65,16 +65,16 @@ export const EU_FLAGS = {
 };
 
 export const MONTHS = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
+  ['January', 'Jan'],
+  ['February', 'Feb'],
+  ['March', 'Mar'],
+  ['April', 'Apr'],
+  ['May', 'May'],
+  ['June', 'Jun'],
+  ['July', 'Jul'],
+  ['August', 'Aug'],
+  ['September', 'Sep'],
+  ['October', 'Oct'],
+  ['November', 'Nov'],
+  ['December', 'Dec'],
 ];

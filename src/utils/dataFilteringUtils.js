@@ -1,5 +1,6 @@
 import { chain, mapValues } from 'lodash';
 import {
+  EU_COUNTRIES,
   EU_FLAGS,
   FORMER_EU_COUNTRIES,
   MONTHS,
@@ -111,8 +112,39 @@ export const getLastUpdateFromData = (data = {}) => {
 
   if (dateFromData) {
     const date = new Date(dateFromData);
-    return `${date.getDate()} ${MONTHS[date.getMonth()]} ${date.getFullYear()}`;
+    return `${date.getDate()} ${
+      MONTHS[date.getMonth()][0]
+    } ${date.getFullYear()}`;
   }
 
   return '';
+};
+
+export const getAllRecordsDates = euCovidData =>
+  euCovidData[EU_COUNTRIES[0]]?.map(entry => entry.date) ?? [];
+
+export const getEUTotalsByDate = euCovidData =>
+  getAllRecordsDates(euCovidData).reduce(
+    (euDatesTotals, date, index) => ({
+      ...euDatesTotals,
+      [date]: Object.values(euCovidData).reduce(
+        (euDayTotals, countryValues) => ({
+          ...euDayTotals,
+          confirmed: euDayTotals.confirmed + countryValues[index].confirmed,
+          deaths: euDayTotals.deaths + countryValues[index].deaths,
+          recovered: euDayTotals.recovered + countryValues[index].recovered,
+        }),
+        { confirmed: 0, deaths: 0, recovered: 0 }
+      ),
+    }),
+    {}
+  );
+
+export const getEUTotalsByDateNewestFirst = euCovidData => {
+  const euTotalsByDate = getEUTotalsByDate(euCovidData);
+  return chain(euTotalsByDate)
+    .toPairs()
+    .reverse()
+    .fromPairs()
+    .value();
 };

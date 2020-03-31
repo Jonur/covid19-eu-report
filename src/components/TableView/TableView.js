@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { bool } from 'prop-types';
+import { string } from 'prop-types';
 import classNames from 'classnames';
 import { sortCountriesDataByColumn } from '../../utils/dataFilteringUtils';
 import { TABLE_VIEW_DATA } from '../../definitions/propTypes';
 import s from './TableView.module.scss';
 
 const TableView = ({
+  alerting,
   countryStatColumnName,
   data,
   dataProp,
   dataPropSecondary,
   title,
-  positive,
 }) => {
   const [countriesData, setCountriesData] = useState(data);
   const [sortedColumns, setSortedColumns] = useState({
@@ -70,9 +70,7 @@ const TableView = ({
               {country[dataProp]}
               {!!country[dataPropSecondary] && (
                 <span
-                  className={classNames(s.secondaryInfo, {
-                    [s.positive]: positive,
-                  })}
+                  className={classNames(s.secondaryInfo, s[alerting])}
                 >{`(+${country[dataPropSecondary]})`}</span>
               )}
             </td>
@@ -92,11 +90,7 @@ const TableView = ({
 
 TableView.propTypes = {
   ...TABLE_VIEW_DATA,
-  positive: bool,
-};
-
-TableView.defaultProps = {
-  positive: false,
+  alerting: string.isRequired,
 };
 
 export default TableView;

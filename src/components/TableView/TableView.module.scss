@@ -57,7 +57,15 @@
           margin-left: 0.25rem;
           font-size: 0.875rem;
 
-          &.positive {
+          &.danger {
+            color: $app-danger;
+          }
+
+          &.warning {
+            color: $app-warning;
+          }
+
+          &.success {
             color: $app-success;
           }
         }

@@ -35,3 +35,24 @@ export const TABLE_VIEW_DATA = {
   dataProp: string.isRequired,
   title: string.isRequired,
 };
+
+export const SECTION_TITLE = {
+  alerting: string.isRequired,
+  ariaLabelledBy: string.isRequired,
+  sectionTitle: string.isRequired,
+  sectionSubtitle: string.isRequired,
+};
+
+export const GRAPH_SECTION = {
+  alerting: string.isRequired,
+  ariaLabelledBy: string.isRequired,
+  graphData: objectOf(
+    shape({
+      confirmed: number.isRequired,
+      deaths: number.isRequired,
+      recovered: number.isRequired,
+    }).isRequired
+  ).isRequired,
+  sectionSubtitle: string.isRequired,
+  sectionTitle: string.isRequired,
+};

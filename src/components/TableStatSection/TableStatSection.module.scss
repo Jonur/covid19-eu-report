@@ -1,43 +1,5 @@
-@import '../../media/colours';
-
 .section {
   margin-bottom: 1.5rem;
   max-width: 850px;
   margin: 0 auto 1.5rem;
-
-  .sectionTitle {
-    position: relative;
-    font-size: 1.25rem;
-    margin: 0;
-    border-bottom: 2px solid $border-light;
-    cursor: pointer;
-
-    .last24hInfo {
-      display: block;
-      font-size: 0.75rem;
-      margin: 0.25rem 0;
-      color: $app-danger;
-      font-weight: normal;
-
-      &.positive {
-        color: $app-success;
-      }
-    }
-
-    .expandCollapseArrow {
-      position: absolute;
-      top: 0;
-      right: 0.5rem;
-      transform: rotate(90deg);
-      transition: transform 0.2s linear;
-
-      &.expanded {
-        transform: rotate(-90deg);
-      }
-
-      &:after {
-        content: '\2023';
-      }
-    }
-  }
 }

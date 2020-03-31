@@ -1,0 +1,51 @@
+@import '../../media/colours';
+
+.section {
+  margin-bottom: 1.5rem;
+  max-width: 850px;
+  margin: 0 auto 1.5rem;
+
+  .graphData {
+    display: grid;
+    grid-template-columns: 80px auto;
+    gap: 0.5rem;
+    align-items: center;
+    margin: 1rem 0 2rem;
+
+    .graphDateEntry {
+      margin: 0;
+      font-size: 0.875rem;
+    }
+    .graphDateData {
+      color: $font-dark;
+      font-size: 0.75rem;
+      margin: 0;
+      display: grid;
+      grid-auto-rows: 1rem;
+      row-gap: 0.175rem;
+
+      .danger,
+      .warning,
+      .success {
+        line-height: 1rem;
+        padding-left: 0.5rem;
+
+        &.noData {
+          padding-left: 0;
+        }
+      }
+
+      .danger {
+        background-color: $app-danger-light;
+      }
+
+      .warning {
+        background-color: $app-warning-light;
+      }
+
+      .success {
+        background-color: $app-success-light;
+      }
+    }
+  }
+}
