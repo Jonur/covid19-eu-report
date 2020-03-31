@@ -7,11 +7,11 @@ import { getHumanFormattedDate } from '../../utils/graphUtils';
 import s from './GraphSection.module.scss';
 
 const GraphSection = ({
+  alerting,
   ariaLabelledBy,
   graphData,
   sectionSubtitle,
   sectionTitle,
-  alerting,
   totals,
 }) => {
   const [expandedSection, setExpandedSection] = useState(false);
@@ -29,11 +29,11 @@ const GraphSection = ({
   return (
     <section aria-labelledby={ariaLabelledBy} className={s.section}>
       <SectionTitle
-        ariaLabelledBy={ariaLabelledBy}
         alerting={alerting}
+        ariaLabelledBy={ariaLabelledBy}
+        expandedSection={expandedSection}
         sectionSubtitle={sectionSubtitle}
         sectionTitle={sectionTitle}
-        expandedSection={expandedSection}
         setExpandedSection={setExpandedSection}
       />
       {expandedSection && (

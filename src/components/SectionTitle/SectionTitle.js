@@ -5,12 +5,12 @@ import { SECTION_TITLE } from '../../definitions/propTypes';
 import s from './SectionTitle.module.scss';
 
 const SectionTitle = ({
-  ariaLabelledBy,
-  setExpandedSection,
-  expandedSection,
-  sectionTitle,
   alerting,
+  ariaLabelledBy,
+  expandedSection,
   sectionSubtitle,
+  sectionTitle,
+  setExpandedSection,
 }) => (
   <h2
     id={ariaLabelledBy}
@@ -18,7 +18,7 @@ const SectionTitle = ({
     className={s.sectionTitle}
   >
     {sectionTitle}
-    <span className={classNames(s.last24hInfo, s[alerting])}>
+    <span className={classNames(s.last24hInfo, { [s[alerting]]: alerting })}>
       {sectionSubtitle}
     </span>
     <span

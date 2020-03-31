@@ -55,7 +55,6 @@ const App = ({ euCovidData, lastUpdate }) => {
           title="Recovered patients table"
         />
         <GraphSection
-          alerting="success"
           ariaLabelledBy="increase-timeline-title"
           graphData={euTotalsByDate}
           sectionTitle="EU Incidents Timeline"

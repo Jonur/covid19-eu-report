@@ -37,14 +37,14 @@ export const TABLE_VIEW_DATA = {
 };
 
 export const SECTION_TITLE = {
-  alerting: string.isRequired,
+  alerting: string,
   ariaLabelledBy: string.isRequired,
   sectionTitle: string.isRequired,
   sectionSubtitle: string.isRequired,
 };
 
 export const GRAPH_SECTION = {
-  alerting: string.isRequired,
+  alerting: string,
   ariaLabelledBy: string.isRequired,
   graphData: objectOf(
     shape({
