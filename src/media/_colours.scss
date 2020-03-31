@@ -23,10 +23,10 @@ $accessible-warning-background: repeating-linear-gradient(
   rgba($app-warning, 0.3),
   rgba($app-warning, 0.3) 1px,
   rgba($app-warning, 0.2) 1px,
-  rgba($app-warning, 0.2) 3px
+  rgba($app-warning, 0.2) 5px
 );
 $accessible-success-background: repeating-linear-gradient(
-  45deg,
+  90deg,
   rgba($app-success, 0.3),
   rgba($app-success, 0.3) 2px,
   rgba($app-success, 0.2) 2px,

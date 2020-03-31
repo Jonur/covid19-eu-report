@@ -1,13 +1,18 @@
 import React, { StrictMode } from 'react';
 import { render } from 'react-dom';
 import { App } from './components';
-import getEUcovidData from './utils/getEUcovidData';
-import { getLastUpdateFromData } from './utils/dataFilteringUtils';
+import getApiData from './utils/getApiData';
+import {
+  getEUCovidData,
+  getLastUpdateFromData,
+} from './utils/dataFilteringUtils';
 import './media/index.scss';
 
-getEUcovidData()
-  .then(euCovidData => {
+getApiData()
+  .then(apiData => {
+    const euCovidData = getEUCovidData(apiData);
     const lastUpdate = getLastUpdateFromData(euCovidData);
+
     render(
       <StrictMode>
         <App euCovidData={euCovidData} lastUpdate={lastUpdate} />

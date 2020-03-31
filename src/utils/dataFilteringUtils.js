@@ -6,6 +6,17 @@ import {
   MONTHS,
 } from '../definitions/constants';
 
+export const getEUCovidData = apiData =>
+  Object.keys(apiData).reduce((euCountries, country) => {
+    if (EU_COUNTRIES.includes(country)) {
+      return {
+        ...euCountries,
+        [country]: apiData[country],
+      };
+    }
+    return euCountries;
+  }, {});
+
 export const getCountryFlagURL = countryName =>
   EU_FLAGS?.[countryName]?.country_code
     ? `https://www.countryflags.io/${EU_FLAGS[countryName].country_code}/flat/32.png`
