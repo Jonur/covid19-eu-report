@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import GraphSectionLine from './GraphSectionLine';
+import GraphSectionOptionControl from './GraphSectionOptionControl';
 import { GRAPH_SECTION } from '../../definitions/propTypes';
 import { SectionTitle } from '..';
 import { getHumanFormattedDate } from '../../utils/graphUtils';
@@ -38,36 +39,24 @@ const GraphSection = ({
       {expandedSection && (
         <>
           <div className={s.displayOptions}>
-            <label className={s.displayDeaths}>
-              <input
-                name="deaths"
-                type="checkbox"
-                value={optionDisplayed.deaths}
-                checked={optionDisplayed.deaths}
-                onChange={handleChange}
-              />{' '}
-              <span>Deaths</span>
-            </label>
-            <label className={s.displayCofirmed}>
-              <input
-                name="confirmed"
-                type="checkbox"
-                value={optionDisplayed.confirmed}
-                checked={optionDisplayed.confirmed}
-                onChange={handleChange}
-              />{' '}
-              <span>Confirmed cases</span>
-            </label>
-            <label className={s.displayRecovered}>
-              <input
-                name="recovered"
-                type="checkbox"
-                value={optionDisplayed.recovered}
-                checked={optionDisplayed.recovered}
-                onChange={handleChange}
-              />{' '}
-              <span>Recovered</span>
-            </label>
+            <GraphSectionOptionControl
+              property="deaths"
+              optionDisplayed={optionDisplayed}
+              handleChange={handleChange}
+              label="Deaths"
+            />
+            <GraphSectionOptionControl
+              property="confirmed"
+              optionDisplayed={optionDisplayed}
+              handleChange={handleChange}
+              label="Confirmed cases"
+            />
+            <GraphSectionOptionControl
+              property="recovered"
+              optionDisplayed={optionDisplayed}
+              handleChange={handleChange}
+              label="Recovered"
+            />
           </div>
           <dl className={s.graphData}>
             {Object.keys(graphData).map(date => (

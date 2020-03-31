@@ -10,9 +10,9 @@
     justify-content: center;
     margin-top: 0.5rem;
 
-    .displayDeaths,
-    .displayCofirmed,
-    .displayRecovered {
+    .deathsDisplay,
+    .confirmedDisplay,
+    .recoveredDisplay {
       display: flex;
       font-size: 0.875rem;
       padding: 0.5rem 0.5rem 0.5rem 0.25rem;
@@ -23,15 +23,15 @@
       }
     }
 
-    .displayDeaths {
+    .deathsDisplay {
       color: $app-white;
       background-color: $app-danger-light;
     }
-    .displayCofirmed {
+    .confirmedDisplay {
       color: $font-dark;
       background-color: $app-warning-light;
     }
-    .displayRecovered {
+    .recoveredDisplay {
       color: $font-dark;
       background-color: $app-success-light;
     }
