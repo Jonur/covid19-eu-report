@@ -23,7 +23,7 @@ const GraphSection = ({
   const handleChange = event =>
     setOptionsDisplayed({
       ...optionDisplayed,
-      [event.target.name]: event.target.checked,
+      [event?.target?.name ?? '']: event?.target?.checked ?? false,
     });
 
   return (
