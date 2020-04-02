@@ -3,7 +3,7 @@ import GraphSectionLine from './GraphSectionLine';
 import GraphSectionOptionControl from './GraphSectionOptionControl';
 import { GRAPH_SECTION } from '../../definitions/propTypes';
 import { SectionTitle } from '..';
-import { getHumanFormattedDate } from '../../utils/graphUtils';
+import { getHumanFormattedDate } from '../../utils/dataPresentationUtils';
 import s from './GraphSection.module.scss';
 
 const GraphSection = ({

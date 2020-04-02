@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { GRAPH_SECTION_LINE } from '../../definitions/propTypes';
 import s from './GraphSection.module.scss';
-import { getStatLineWidth } from '../../utils/graphUtils';
+import { getStatLineWidth } from '../../utils/dataPresentationUtils';
 
 export const GraphSectionLine = ({ className, self, total }) => {
   const selfWidth = getStatLineWidth(self, total);

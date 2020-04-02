@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactSvgPieChart from 'react-svg-piechart';
 import { PIE_CHART } from '../../definitions/propTypes';
-import { getChartData } from '../../utils/graphUtils';
+import { getChartData } from '../../utils/dataPresentationUtils';
 import s from './PiechartSection.module.scss';
 
 const Piechart = ({

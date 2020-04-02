@@ -11,7 +11,10 @@ import {
   getCountiesTotalsDate,
   getEUTotalsByDateNewestFirst,
 } from '../../utils/dataFilteringUtils';
-import { formatThousands, getEUtotals } from '../../utils/graphUtils';
+import {
+  formatThousands,
+  getEUtotals,
+} from '../../utils/dataPresentationUtils';
 import s from './App.module.scss';
 
 const App = ({ euCovidData, lastUpdate, worldTotals }) => {
