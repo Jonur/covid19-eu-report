@@ -1,0 +1,90 @@
+@import '../../media/colours';
+
+.section {
+  margin-bottom: 1.5rem;
+  max-width: 850px;
+  margin: 0 auto 1.5rem;
+
+  .piecharts {
+    display: flex;
+    flex-direction: column;
+
+    .piechartContainer {
+      margin-bottom: 2rem;
+
+      .piechart {
+        display: flex;
+        height: 150px;
+        align-items: center;
+        margin-top: 1rem;
+
+        .piechartDetails {
+          list-style-type: none;
+          margin: 0 0 0 2rem;
+          padding: 0;
+
+          li {
+            display: flex;
+            height: 1.5rem;
+            align-items: center;
+            margin-bottom: 0.5rem;
+
+            &::before {
+              content: '';
+              width: 1.5rem;
+              height: 1.5rem;
+              margin-right: 0.5rem;
+            }
+
+            &.labelDeaths::before {
+              background-color: $app-danger;
+            }
+
+            &.labelConfirmed::before {
+              background-color: $app-warning;
+            }
+
+            &.labelRecovered::before {
+              background-color: $app-success;
+            }
+
+            &:nth-child(even)::before {
+              background-color: $app-piechart-bg;
+            }
+          }
+        }
+
+        > svg {
+          width: 150px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .piecharts {
+      flex-direction: row;
+
+      .piechartContainer {
+        flex: 1 1;
+
+        .piechartTitle {
+          text-align: center;
+        }
+
+        .piechart {
+          flex-direction: column;
+          height: 235px;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}
+
+:export {
+  piechartBg: $app-piechart-bg;
+  piechartDeaths: $app-danger;
+  piechartConfirmed: $app-warning;
+  piechartRecovered: $app-success;
+}

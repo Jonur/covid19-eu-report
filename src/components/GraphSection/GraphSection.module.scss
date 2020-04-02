@@ -20,6 +20,7 @@
       padding: 0.5rem 0.5rem 0.5rem 0.25rem;
       border-radius: 2px;
       color: $font-dark;
+      cursor: pointer;
 
       &:not(:last-child) {
         margin-right: 0.175rem;
@@ -28,6 +29,7 @@
       > input,
       span {
         flex: 1 1 auto;
+        cursor: inherit;
       }
     }
 
@@ -53,6 +55,7 @@
       margin: 0;
       font-size: 0.875rem;
     }
+
     .graphDateData {
       color: $font-dark;
       font-size: 0.75rem;

@@ -6,6 +6,30 @@ import {
   MONTHS,
 } from '../definitions/constants';
 
+export const getWorldTotals = apiData =>
+  Object.values(apiData).reduce(
+    (euDayTotals, countryValues) => {
+      const currentCountryTotals = countryValues[countryValues.length - 1];
+
+      return {
+        ...euDayTotals,
+        confirmed: euDayTotals.confirmed + currentCountryTotals.confirmed,
+        deaths: euDayTotals.deaths + currentCountryTotals.deaths,
+        recovered: euDayTotals.recovered + currentCountryTotals.recovered,
+      };
+    },
+    { confirmed: 0, deaths: 0, recovered: 0 }
+  );
+
+export const getFormattedPercentage = (part, total) =>
+  parseFloat(((part / total) * 100).toFixed(2), 10);
+
+export const getEuPercentVsRoW = (rowTotals, euTotals) => ({
+  confirmed: getFormattedPercentage(euTotals.confirmed, rowTotals.confirmed),
+  deaths: getFormattedPercentage(euTotals.deaths, rowTotals.deaths),
+  recovered: getFormattedPercentage(euTotals.recovered, rowTotals.recovered),
+});
+
 export const getEUCovidData = apiData =>
   Object.keys(apiData).reduce((euCountries, country) => {
     if (EU_COUNTRIES.includes(country)) {

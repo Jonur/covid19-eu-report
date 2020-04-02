@@ -5,17 +5,23 @@ import getApiData from './utils/getApiData';
 import {
   getEUCovidData,
   getLastUpdateFromData,
+  getWorldTotals,
 } from './utils/dataFilteringUtils';
 import './media/index.scss';
 
 getApiData()
   .then(apiData => {
+    const worldTotals = getWorldTotals(apiData);
     const euCovidData = getEUCovidData(apiData);
     const lastUpdate = getLastUpdateFromData(euCovidData);
 
     render(
       <StrictMode>
-        <App euCovidData={euCovidData} lastUpdate={lastUpdate} />
+        <App
+          euCovidData={euCovidData}
+          lastUpdate={lastUpdate}
+          worldTotals={worldTotals}
+        />
       </StrictMode>,
       document.getElementById('covid19-eu-report-app')
     );

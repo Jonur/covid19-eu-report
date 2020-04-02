@@ -8896,6 +8896,11 @@ react-scripts@3.4.1:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-svg-piechart@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/react-svg-piechart/-/react-svg-piechart-2.4.1.tgz#da277ca461e099f6c64b985c83e39438102f6cb9"
+  integrity sha512-13AtzhKU34s+4A3u35e77Nb9ITmIZsRi5xoboeQOnGyDeNTqTdGnBQMG/5sl/ANcB+dpy1H0ubMaGChlp5D91w==
+
 react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"

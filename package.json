@@ -48,7 +48,8 @@
     "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-svg-piechart": "^2.4.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.3.0",

@@ -1,6 +1,12 @@
 import React from 'react';
 import { APP_DATA } from '../../definitions/propTypes';
-import { Footer, GraphSection, Header, TableStatSection } from '..';
+import {
+  Footer,
+  GraphSection,
+  Header,
+  PiechartSection,
+  TableStatSection,
+} from '..';
 import {
   getCountiesTotalsDate,
   getEUTotalsByDateNewestFirst,
@@ -8,10 +14,10 @@ import {
 import { formatThousands, getEUtotals } from '../../utils/graphUtils';
 import s from './App.module.scss';
 
-const App = ({ euCovidData, lastUpdate }) => {
+const App = ({ euCovidData, lastUpdate, worldTotals }) => {
   const countiesTotalsToDate = getCountiesTotalsDate(euCovidData);
   const euTotalsByDate = getEUTotalsByDateNewestFirst(euCovidData);
-  const totals = getEUtotals(euTotalsByDate);
+  const euTotals = getEUtotals(euTotalsByDate);
 
   return (
     <>
@@ -24,7 +30,7 @@ const App = ({ euCovidData, lastUpdate }) => {
           data={countiesTotalsToDate}
           dataProp="totalDeaths"
           dataPropSecondary="deathsLast24h"
-          sectionTitle={`${formatThousands(totals.deaths)} Total deaths`}
+          sectionTitle={`${formatThousands(euTotals.deaths)} Total deaths`}
           sectionSubtitle="(+ COVID-19 caused deaths in the past 24 hours)"
           title="Total deaths table"
         />
@@ -36,7 +42,7 @@ const App = ({ euCovidData, lastUpdate }) => {
           dataProp="totalCases"
           dataPropSecondary="casesLast24h"
           sectionTitle={`${formatThousands(
-            totals.confirmed
+            euTotals.confirmed
           )} Total confirmed cases`}
           sectionSubtitle="(+ COVID-19 confirmed cases in the past 24 hours)"
           title="Total confirmed cases table"
@@ -49,7 +55,7 @@ const App = ({ euCovidData, lastUpdate }) => {
           dataProp="totalRecovered"
           dataPropSecondary="recoveredLast24h"
           sectionTitle={`${formatThousands(
-            totals.recovered
+            euTotals.recovered
           )} Patients recovered`}
           sectionSubtitle="(+ COVID-19 recovered patients in the past 24 hours)"
           title="Recovered patients table"
@@ -59,7 +65,14 @@ const App = ({ euCovidData, lastUpdate }) => {
           graphData={euTotalsByDate}
           sectionTitle="EU Incidents Timeline"
           sectionSubtitle="COVID-19 timeline in the European Union"
-          totals={totals}
+          totals={euTotals}
+        />
+        <PiechartSection
+          ariaLabelledBy="eu-row-totals"
+          sectionTitle="EU % vs Rest of the World"
+          sectionSubtitle="COVID-19 EU percentages versus the rest of the world"
+          euTotals={euTotals}
+          worldTotals={worldTotals}
         />
       </main>
       <Footer />
