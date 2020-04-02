@@ -1,3 +1,4 @@
+import 'fix-date';
 import { MONTHS } from '../definitions/constants';
 
 export const getHumanFormattedDate = date => {
