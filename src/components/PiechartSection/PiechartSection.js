@@ -105,7 +105,7 @@ const PiechartSection = ({
                 />
                 <ul className={s.piechartDetails}>
                   <li
-                    className={s.labelConfirmed}
+                    className={s.labelRecovered}
                   >{`EU (${chartDataRecovered[0].value}%)`}</li>
                   <li>World</li>
                 </ul>
