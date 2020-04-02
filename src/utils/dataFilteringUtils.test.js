@@ -5,6 +5,50 @@ describe('dataFilteringUtils', () => {
     jest.clearAllMocks();
   });
 
+  describe('getWorldTotals', () => {
+    it('should return the Object with the world totals', () => {
+      const result = utils.getWorldTotals({
+        Greece: [{ confirmed: 10, deaths: 10, recovered: 10 }],
+        Italy: [{ confirmed: 20, deaths: 20, recovered: 20 }],
+      });
+
+      expect(result).toEqual({ confirmed: 30, deaths: 30, recovered: 30 });
+    });
+  });
+
+  describe('getFormattedPercentage', () => {
+    it('should return a percentage result as a float number with up to two decimal digits', () => {
+      const result = utils.getFormattedPercentage(2323, 90120);
+      expect(result).toBe(2.58);
+    });
+  });
+
+  describe('getEuPercentVsRoW', () => {
+    it('should return an Object of percentage results', () => {
+      const result = utils.getEuPercentVsRoW(
+        { confirmed: 150, deaths: 150, recovered: 150 },
+        { confirmed: 20, deaths: 20, recovered: 20 }
+      );
+      expect(result).toEqual({
+        confirmed: 13.33,
+        deaths: 13.33,
+        recovered: 13.33,
+      });
+    });
+  });
+
+  describe('getEUCovidData', () => {
+    it('should return the EU country results from a data set', () => {
+      const result = utils.getEUCovidData({
+        Greece: [{ confirmed: 10, deaths: 10, recovered: 10 }],
+        China: [{ confirmed: 20, deaths: 20, recovered: 20 }],
+      });
+      expect(result).toEqual({
+        Greece: [{ confirmed: 10, deaths: 10, recovered: 10 }],
+      });
+    });
+  });
+
   describe('getCountryFlagURL', () => {
     it('should return the correct flag URL for the given country', () => {
       const result = utils.getCountryFlagURL('Greece');
@@ -165,6 +209,62 @@ describe('dataFilteringUtils', () => {
     it('should return an empty String for invalid or falsy data', () => {
       const result = utils.getLastUpdateFromData();
       expect(result).toBe('');
+    });
+  });
+
+  describe('getAllRecordsDates', () => {
+    it('should get all data dates from the first EU result', () => {
+      const result = utils.getAllRecordsDates({
+        Austria: [{ date: '2020-11-5' }, { date: '2020-12-5' }],
+        Greece: [{ date: '2020-12-15' }, { date: '2020-12-15' }],
+      });
+
+      expect(result).toEqual(['2020-11-5', '2020-12-5']);
+    });
+  });
+
+  describe('getEUTotalsByDate', () => {
+    it('should get all EU totals and organise them by date', () => {
+      const result = utils.getEUTotalsByDate({
+        Austria: [
+          { confirmed: 10, deaths: 10, recovered: 10, date: '2020-12-5' },
+        ],
+        Italy: [
+          { confirmed: 20, deaths: 20, recovered: 20, date: '2020-12-5' },
+        ],
+      });
+
+      expect(result).toEqual({
+        '2020-12-5': { confirmed: 30, deaths: 30, recovered: 30 },
+      });
+    });
+  });
+
+  describe('getEUTotalsByDateNewestFirst', () => {
+    it('should return the EU totals and organise them in a descending date order', () => {
+      const result = utils.getEUTotalsByDateNewestFirst({
+        Austria: [
+          { confirmed: 10, deaths: 10, recovered: 10, date: '2020-12-5' },
+          { confirmed: 20, deaths: 20, recovered: 20, date: '2020-5-2' },
+        ],
+        Italy: [
+          { confirmed: 10, deaths: 10, recovered: 10, date: '2020-12-5' },
+          { confirmed: 20, deaths: 20, recovered: 20, date: '2020-5-2' },
+        ],
+      });
+
+      expect(result).toEqual({
+        '2020-12-5': {
+          confirmed: 20,
+          deaths: 20,
+          recovered: 20,
+        },
+        '2020-5-2': {
+          confirmed: 40,
+          deaths: 40,
+          recovered: 40,
+        },
+      });
     });
   });
 });
