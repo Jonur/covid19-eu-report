@@ -20,7 +20,7 @@ const PiechartSection = ({
       value: euPercentVsRoW.deaths,
       color: s.piechartDeaths,
     },
-    { title: 'World', value: 100, color: s.piechartBg },
+    { title: 'World', value: 100 - euPercentVsRoW.deaths, color: s.piechartBg },
   ];
   const chartDataConfirmed = [
     {
@@ -28,7 +28,11 @@ const PiechartSection = ({
       value: euPercentVsRoW.confirmed,
       color: s.piechartConfirmed,
     },
-    { title: 'World', value: 100, color: s.piechartBg },
+    {
+      title: 'World',
+      value: 100 - euPercentVsRoW.confirmed,
+      color: s.piechartBg,
+    },
   ];
   const chartDataRecovered = [
     {
@@ -36,7 +40,11 @@ const PiechartSection = ({
       value: euPercentVsRoW.recovered,
       color: s.piechartRecovered,
     },
-    { title: 'World', value: 100, color: s.piechartBg },
+    {
+      title: 'World',
+      value: 100 - euPercentVsRoW.recovered,
+      color: s.piechartBg,
+    },
   ];
 
   return (
