@@ -4,15 +4,15 @@ import { SectionTitle, TableView } from '..';
 import s from './TableStatSection.module.scss';
 
 const TableStatSection = ({
+  alerting,
   ariaLabelledBy,
   countryStatColumnName,
   data,
   dataProp,
   dataPropSecondary,
-  sectionTitle,
   sectionSubtitle,
+  sectionTitle,
   title,
-  alerting,
 }) => {
   const [expandedSection, setExpandedSection] = useState(false);
 

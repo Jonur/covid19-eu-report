@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { GRAPH_SECTION_LINE } from '../../definitions/propTypes';
 import s from './GraphSection.module.scss';
 import { getStatLineWidth } from '../../utils/graphUtils';
 
@@ -14,5 +15,7 @@ export const GraphSectionLine = ({ className, self, total }) => {
     </div>
   );
 };
+
+GraphSectionLine.propTypes = GRAPH_SECTION_LINE;
 
 export default GraphSectionLine;

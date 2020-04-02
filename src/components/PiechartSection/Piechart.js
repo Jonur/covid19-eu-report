@@ -1,28 +1,22 @@
 import React from 'react';
 import ReactSvgPieChart from 'react-svg-piechart';
+import { PIE_CHART } from '../../definitions/propTypes';
+import { getChartData } from '../../utils/graphUtils';
 import s from './PiechartSection.module.scss';
-
-export const getChartData = (piechartColour, trackingTitle, trackingValue) => [
-  {
-    title: trackingTitle,
-    value: trackingValue,
-    color: piechartColour,
-  },
-  {
-    title: 'World',
-    value: 100 - trackingValue,
-    color: s.piechartBg,
-  },
-];
 
 const Piechart = ({
   className,
-  title,
   piechartColour,
+  title,
   trackingTitle,
   trackingValue,
 }) => {
-  const chartData = getChartData(piechartColour, trackingTitle, trackingValue);
+  const chartData = getChartData(
+    s.piechartBg,
+    piechartColour,
+    trackingTitle,
+    trackingValue
+  );
 
   return (
     <section className={s.piechartContainer}>
@@ -42,5 +36,7 @@ const Piechart = ({
     </section>
   );
 };
+
+Piechart.propTypes = PIE_CHART;
 
 export default Piechart;

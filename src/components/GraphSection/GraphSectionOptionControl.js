@@ -1,11 +1,12 @@
 import React from 'react';
+import { GRAPH_SECTION_OPTION_CONTROL } from '../../definitions/propTypes';
 import s from './GraphSection.module.scss';
 
 const GraphSectionOptionControl = ({
-  property,
+  handleChange,
   label,
   optionDisplayed,
-  handleChange,
+  property,
 }) => (
   <label className={s[`${property}Display`]}>
     <input
@@ -18,5 +19,7 @@ const GraphSectionOptionControl = ({
     <span>{label}</span>
   </label>
 );
+
+GraphSectionOptionControl.propTypes = GRAPH_SECTION_OPTION_CONTROL;
 
 export default GraphSectionOptionControl;

@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { SectionTitle } from '..';
 import Piechart from './Piechart';
+import { PIE_CHART_SECTION } from '../../definitions/propTypes';
 import { getEuPercentVsRoW } from '../../utils/dataFilteringUtils';
 import s from './PiechartSection.module.scss';
 
 const PiechartSection = ({
   alerting,
   ariaLabelledBy,
+  euTotals,
   sectionSubtitle,
   sectionTitle,
   worldTotals,
-  euTotals,
 }) => {
   const [expandedSection, setExpandedSection] = useState(false);
   const euPercentVsRoW = getEuPercentVsRoW(worldTotals, euTotals);
@@ -55,5 +56,7 @@ const PiechartSection = ({
     </section>
   );
 };
+
+PiechartSection.propTypes = PIE_CHART_SECTION;
 
 export default PiechartSection;

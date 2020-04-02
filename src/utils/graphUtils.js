@@ -15,3 +15,21 @@ export const getEUtotals = euTotalsByDate =>
 
 export const formatThousands = num =>
   num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+export const getChartData = (
+  piechartBg,
+  trackingColour,
+  trackingTitle,
+  trackingValue
+) => [
+  {
+    title: trackingTitle,
+    value: trackingValue,
+    color: trackingColour,
+  },
+  {
+    title: 'World',
+    value: 100 - trackingValue,
+    color: piechartBg,
+  },
+];
