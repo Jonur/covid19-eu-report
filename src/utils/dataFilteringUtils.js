@@ -1,4 +1,5 @@
 import { chain, mapValues } from 'lodash';
+import 'fix-date';
 import {
   EU_COUNTRIES,
   EU_FLAGS,
