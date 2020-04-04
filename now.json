@@ -16,8 +16,8 @@
       "dest": "/eufavicon.png"
     },
     {
-      "src": "^/european-union.png$",
-      "dest": "/european-union.png"
+      "src": "^/euStars.png$",
+      "dest": "/euStars.png"
     },
     {
       "src": "^/robots.txt$",
