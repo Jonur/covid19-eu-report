@@ -1,5 +1,4 @@
-import React from 'react';
-import { APP_DATA } from '../../definitions/propTypes';
+import React, { useEffect, useState } from 'react';
 import {
   Footer,
   GraphSection,
@@ -9,18 +8,56 @@ import {
 } from '..';
 import {
   getCountiesTotalsDate,
+  getEUCovidData,
   getEUTotalsByDateNewestFirst,
+  getLastUpdateFromData,
+  getWorldTotals,
 } from '../../utils/dataFilteringUtils';
 import {
   formatThousands,
   getEUtotals,
 } from '../../utils/dataPresentationUtils';
+import getApiData from '../../utils/getApiData';
 import s from './App.module.scss';
 
-const App = ({ euCovidData, lastUpdate, worldTotals }) => {
-  const countiesTotalsToDate = getCountiesTotalsDate(euCovidData);
-  const euTotalsByDate = getEUTotalsByDateNewestFirst(euCovidData);
-  const euTotals = getEUtotals(euTotalsByDate);
+const App = () => {
+  const [appData, setAppData] = useState({});
+  const [dataFetched, setDataFetched] = useState(false);
+
+  useEffect(() => {
+    getApiData().then((apiData) => {
+      const worldTotals = getWorldTotals(apiData);
+      const euCovidData = getEUCovidData(apiData);
+      const lastUpdate = getLastUpdateFromData(euCovidData);
+      const countiesTotalsToDate = getCountiesTotalsDate(euCovidData);
+      const euTotalsByDate = getEUTotalsByDateNewestFirst(euCovidData);
+      const euTotals = getEUtotals(euTotalsByDate);
+
+      setAppData({
+        countiesTotalsToDate,
+        euTotals,
+        euTotalsByDate,
+        lastUpdate,
+        worldTotals,
+      });
+
+      setDataFetched(true);
+    });
+  }, []);
+
+  if (!dataFetched) {
+    return <div className="app-loading">Loading...</div>;
+  }
+
+  const {
+    countiesTotalsToDate,
+    euTotals,
+    euTotalsByDate,
+    lastUpdate,
+    worldTotals,
+  } = appData;
+
+  console.log(appData);
 
   return (
     <>
@@ -82,7 +119,5 @@ const App = ({ euCovidData, lastUpdate, worldTotals }) => {
     </>
   );
 };
-
-App.propTypes = APP_DATA;
 
 export default App;

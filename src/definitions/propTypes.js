@@ -27,12 +27,6 @@ export const EU_COVID19_DATA = {
   euCovidData: objectOf(EU_COUNTRY_COVID19_DATA).isRequired,
 };
 
-export const APP_DATA = {
-  ...EU_COVID19_DATA,
-  lastUpdate: string.isRequired,
-  worldTotals: COUNTRY_BASE_DATA,
-};
-
 export const TABLE_VIEW_DATA = {
   countryStatColumnName: string.isRequired,
   data: arrayOf(
