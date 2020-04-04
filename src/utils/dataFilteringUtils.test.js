@@ -203,7 +203,7 @@ describe('dataFilteringUtils', () => {
 
     it('should return the last date in the data in the right format', () => {
       const result = utils.getLastUpdateFromData(data);
-      expect(result).toBe('5 February 1995');
+      expect(result).toBe('5 Feb 95');
     });
 
     it('should return an empty String for invalid or falsy data', () => {

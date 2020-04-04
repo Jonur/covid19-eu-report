@@ -7,7 +7,7 @@ import {
   MONTHS,
 } from '../definitions/constants';
 
-export const getWorldTotals = apiData =>
+export const getWorldTotals = (apiData) =>
   Object.values(apiData).reduce(
     (euDayTotals, countryValues) => {
       const currentCountryTotals = countryValues[countryValues.length - 1];
@@ -31,7 +31,7 @@ export const getEuPercentVsRoW = (rowTotals, euTotals) => ({
   recovered: getFormattedPercentage(euTotals.recovered, rowTotals.recovered),
 });
 
-export const getEUCovidData = apiData =>
+export const getEUCovidData = (apiData) =>
   Object.keys(apiData).reduce((euCountries, country) => {
     if (EU_COUNTRIES.includes(country)) {
       return {
@@ -42,7 +42,7 @@ export const getEUCovidData = apiData =>
     return euCountries;
   }, {});
 
-export const getCountryFlagURL = countryName =>
+export const getCountryFlagURL = (countryName) =>
   EU_FLAGS?.[countryName]?.country_code
     ? `https://www.countryflags.io/${EU_FLAGS[countryName].country_code}/flat/32.png`
     : '';
@@ -53,8 +53,8 @@ export const getTotalPropOfCountry = (countryData, prop) =>
 export const getTotalPropOfCountryYesterday = (countryData, prop) =>
   countryData[countryData.length - 2]?.[prop] || 0;
 
-export const getCountiesTotalsDate = countriesStats => {
-  const filteredStats = Object.keys(countriesStats).map(country => {
+export const getCountiesTotalsDate = (countriesStats) => {
+  const filteredStats = Object.keys(countriesStats).map((country) => {
     const totalDeaths = getTotalPropOfCountry(
       countriesStats[country],
       'deaths'
@@ -93,21 +93,13 @@ export const getCountiesTotalsDate = countriesStats => {
     };
   });
 
-  return chain(filteredStats)
-    .sortBy('totalDeaths')
-    .reverse()
-    .value();
+  return chain(filteredStats).sortBy('totalDeaths').reverse().value();
 };
 
 export const getSortedColumns = (countriesData, column, columnStatus) =>
   columnStatus
-    ? chain(countriesData)
-        .sortBy(column)
-        .reverse()
-        .value()
-    : chain(countriesData)
-        .sortBy(column)
-        .value();
+    ? chain(countriesData).sortBy(column).reverse().value()
+    : chain(countriesData).sortBy(column).value();
 
 export const getSortedColumnsStatii = (
   column,
@@ -149,17 +141,17 @@ export const getLastUpdateFromData = (data = {}) => {
   if (dateFromData) {
     const date = new Date(dateFromData);
     return `${date.getDate()} ${
-      MONTHS[date.getMonth()][0]
-    } ${date.getFullYear()}`;
+      MONTHS[date.getMonth()][1]
+    } ${date.getFullYear().toString().substr(-2)}`;
   }
 
   return '';
 };
 
-export const getAllRecordsDates = euCovidData =>
-  euCovidData[EU_COUNTRIES[0]]?.map(entry => entry.date) ?? [];
+export const getAllRecordsDates = (euCovidData) =>
+  euCovidData[EU_COUNTRIES[0]]?.map((entry) => entry.date) ?? [];
 
-export const getEUTotalsByDate = euCovidData =>
+export const getEUTotalsByDate = (euCovidData) =>
   getAllRecordsDates(euCovidData).reduce(
     (euDatesTotals, date, index) => ({
       ...euDatesTotals,
@@ -176,11 +168,7 @@ export const getEUTotalsByDate = euCovidData =>
     {}
   );
 
-export const getEUTotalsByDateNewestFirst = euCovidData => {
+export const getEUTotalsByDateNewestFirst = (euCovidData) => {
   const euTotalsByDate = getEUTotalsByDate(euCovidData);
-  return chain(euTotalsByDate)
-    .toPairs()
-    .reverse()
-    .fromPairs()
-    .value();
+  return chain(euTotalsByDate).toPairs().reverse().fromPairs().value();
 };

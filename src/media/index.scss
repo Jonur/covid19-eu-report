@@ -3,6 +3,7 @@
 html,
 body {
   font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   color: $font-light;
   margin: 0;
   padding: 0;
@@ -17,15 +18,5 @@ body {
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
-  }
-
-  header {
-    color: $font-dark;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  main {
-    padding: 1.5rem 0.5rem 0;
   }
 }

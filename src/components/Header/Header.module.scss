@@ -1,19 +1,40 @@
 @import '../../media/colours';
 
 .appHeader {
+  display: flex;
+  height: 80px;
   color: $app-white;
-  padding: 0 0.5rem 0.5rem;
+  padding: 1rem;
+  border-radius: 2.56rem;
   background-color: $light-blue;
-  border-bottom: 0.25rem solid $dark-blue;
+  margin: 0.5rem 0.5rem 0;
 
-  .appTitle {
-    font-size: 1.5rem;
-    margin: 0;
+  .euStars {
+    height: 100%;
+    width: auto;
   }
 
-  .lastUpdate {
-    margin: 0;
-    font-size: 0.875rem;
-    font-weight: normal;
+  .headerText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 0 0 1rem;
+
+    .appTitle {
+      font-size: 1rem;
+      margin: 0 0 0.25rem;
+      font-weight: 400;
+    }
+
+    .lastUpdate {
+      margin: 0;
+      font-size: 0.875rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    width: 750px;
+    margin: 0.5rem auto 0;
   }
 }
