@@ -48,8 +48,10 @@ export const TABLE_VIEW_DATA = {
 export const SECTION_TITLE = {
   alerting: string,
   ariaLabelledBy: string.isRequired,
-  sectionTitle: string.isRequired,
-  sectionSubtitle: string.isRequired,
+  sectionTotals: string,
+  sectionNew: string,
+  sectionTitle: string,
+  sectionSubtitle: string,
 };
 
 export const GRAPH_SECTION = {
@@ -88,7 +90,7 @@ export const PIE_CHART_SECTION = {
   alerting: string,
   ariaLabelledBy: string.isRequired,
   sectionSubtitle: string.isRequired,
-  sectionTitle: string.isRequired,
+  sectionTitle: string,
   worldTotals: COUNTRY_BASE_DATA,
   euTotals: COUNTRY_BASE_DATA,
 };

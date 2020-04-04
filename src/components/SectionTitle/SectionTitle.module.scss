@@ -1,45 +1,99 @@
 @import '../../media/colours';
 
 .sectionTitle {
-  position: relative;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  padding: 0 0.5rem;
+  margin: 0 0 0.5rem;
+  color: $font-dark;
+}
+
+.sectionSubtitle {
+  display: flex;
   font-size: 1.25rem;
   margin: 0;
-  border-bottom: 2px solid $border-light;
+  border: 1px solid $light-grey;
   cursor: pointer;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 10px 0 rgba($app-black, 0.06);
+  padding: 0.5rem 0;
+  height: 90px;
 
-  .last24hInfo {
-    display: block;
-    font-size: 0.875rem;
-    margin: 0.25rem 0;
+  &.compact {
+    height: 61px;
+  }
+
+  .titleTotals,
+  .titleNew {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: $font-dark;
-    font-weight: normal;
+    flex: 2 2;
+    max-width: 150px;
+    padding-left: 1.25rem;
 
-    &.danger {
-      color: $app-danger;
+    .totalLabel {
+      font-size: 0.9375rem;
+      font-weight: 400;
+
+      &.danger {
+        color: $app-danger;
+      }
+
+      &.warning {
+        color: $app-warning;
+      }
+
+      &.success {
+        color: $app-success;
+      }
     }
 
-    &.warning {
-      color: $app-warning;
-    }
-
-    &.success {
-      color: $app-success;
+    .totalNumber {
+      font-size: 1.625rem;
+      font-weight: 500;
     }
   }
 
-  .expandCollapseArrow {
-    position: absolute;
-    top: 0;
-    right: 0.5rem;
-    transform: rotate(90deg);
-    transition: transform 0.2s linear;
+  .titleTotals {
+    border-right: 1px solid $light-grey;
 
-    &.expanded {
-      transform: rotate(-90deg);
+    @media (min-width: 768px) {
+      padding-left: 2rem;
     }
+  }
+
+  .sectionSubtitleText {
+    flex: 2 2;
+    align-self: center;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    padding-left: 1.3125rem;
+  }
+
+  .expandCollapseArrow {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding-right: 1rem;
+    transition: transform 0.2s linear;
 
     &:after {
       content: '\2023';
+      color: $dark-blue;
+      font-size: 2.66rem;
+      transform: rotate(90deg);
+    }
+
+    &.expanded:after {
+      transform: rotate(-90deg);
+    }
+
+    @media (min-width: 768px) {
+      padding-right: 2rem;
     }
   }
 }

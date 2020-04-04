@@ -68,8 +68,9 @@ const App = () => {
           data={countiesTotalsToDate}
           dataProp="totalDeaths"
           dataPropSecondary="deathsLast24h"
-          sectionTitle={`${formatThousands(euTotals.deaths)} Total deaths`}
-          sectionSubtitle="(+ COVID-19 caused deaths in the past 24 hours)"
+          sectionTotals={`${formatThousands(euTotals.current.deaths)}`}
+          sectionNew={`${formatThousands(euTotals.new.deaths)}`}
+          sectionTitle="EU deaths"
           title="Total deaths table"
         />
         <TableStatSection
@@ -79,10 +80,9 @@ const App = () => {
           data={countiesTotalsToDate}
           dataProp="totalCases"
           dataPropSecondary="casesLast24h"
-          sectionTitle={`${formatThousands(
-            euTotals.confirmed
-          )} Total confirmed cases`}
-          sectionSubtitle="(+ COVID-19 confirmed cases in the past 24 hours)"
+          sectionTotals={`${formatThousands(euTotals.current.confirmed)}`}
+          sectionNew={`${formatThousands(euTotals.new.confirmed)}`}
+          sectionTitle="EU Confirmed cases"
           title="Total confirmed cases table"
         />
         <TableStatSection
@@ -92,24 +92,22 @@ const App = () => {
           data={countiesTotalsToDate}
           dataProp="totalRecovered"
           dataPropSecondary="recoveredLast24h"
-          sectionTitle={`${formatThousands(
-            euTotals.recovered
-          )} Patients recovered`}
-          sectionSubtitle="(+ COVID-19 recovered patients in the past 24 hours)"
+          sectionTotals={`${formatThousands(euTotals.current.recovered)}`}
+          sectionNew={`${formatThousands(euTotals.new.recovered)}`}
+          sectionTitle="EU Recovered patients"
           title="Recovered patients table"
         />
         <GraphSection
           ariaLabelledBy="increase-timeline-title"
           graphData={euTotalsByDate}
-          sectionTitle="EU Incidents Timeline"
-          sectionSubtitle="COVID-19 timeline in the European Union"
-          totals={euTotals}
+          sectionTitle="Useful statistics"
+          sectionSubtitle="EU Incidents timeline"
+          totals={euTotals.current}
         />
         <PiechartSection
           ariaLabelledBy="eu-row-totals"
-          sectionTitle="EU % vs Rest of the World"
-          sectionSubtitle="COVID-19 EU percentages versus the rest of the world"
-          euTotals={euTotals}
+          sectionSubtitle="EU % vs Rest of the World"
+          euTotals={euTotals.current}
           worldTotals={worldTotals}
         />
       </main>
