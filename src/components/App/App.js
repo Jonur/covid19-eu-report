@@ -46,7 +46,7 @@ const App = () => {
   }, []);
 
   if (!dataFetched) {
-    return <div className="app-loading">Loading...</div>;
+    return <div className={s.appLoading}>Loading...</div>;
   }
 
   const {
@@ -56,8 +56,6 @@ const App = () => {
     lastUpdate,
     worldTotals,
   } = appData;
-
-  console.log(appData);
 
   return (
     <>
