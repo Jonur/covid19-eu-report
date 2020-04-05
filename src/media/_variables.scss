@@ -10,10 +10,10 @@ $expanded-section-shadow: -2px 5px 10px 2px rgba($app-black, 0.01),
 
 $accessible-danger-background: repeating-linear-gradient(
   -45deg,
-  rgba($app-danger, 0.2),
-  rgba($app-danger, 0.2) 2px,
-  rgba($app-danger, 0.15) 2px,
-  rgba($app-danger, 0.15) 5px
+  rgba($app-danger, 0.5),
+  rgba($app-danger, 0.5) 1px,
+  rgba($app-danger, 0.8) 2px,
+  rgba($app-danger, 0.8) 7px
 );
 $accessible-warning-background: repeating-linear-gradient(
   0deg,

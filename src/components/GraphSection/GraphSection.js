@@ -39,7 +39,7 @@ const GraphSection = ({
         setExpandedSection={setExpandedSection}
       />
       {expandedSection && (
-        <>
+        <div className={s.graphStatsContainer}>
           <div className={s.displayOptions}>
             <GraphSectionOptionControl
               property="deaths"
@@ -92,7 +92,7 @@ const GraphSection = ({
               </Fragment>
             ))}
           </dl>
-        </>
+        </div>
       )}
     </section>
   );

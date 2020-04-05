@@ -4,87 +4,113 @@
   max-width: 750px;
   margin: 0 auto 0.5rem;
 
-  .displayOptions {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
+  .graphStatsContainer {
+    margin-bottom: 0.5rem;
+    border: 1px solid $light-grey;
+    box-shadow: $expanded-section-shadow;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 0 1rem;
+    background-color: $app-white;
+    font-weight: 400;
 
-    .deathsDisplay,
-    .confirmedDisplay,
-    .recoveredDisplay {
-      flex: 1 1;
+    .displayOptions {
       display: flex;
-      align-items: center;
-      font-size: 0.875rem;
-      padding: 0.5rem 0.5rem 0.5rem 0.25rem;
-      border-radius: 2px;
-      color: $font-dark;
-      cursor: pointer;
+      justify-content: space-around;
+      height: 45px;
 
-      &:not(:last-child) {
-        margin-right: 0.175rem;
+      .deathsDisplay,
+      .confirmedDisplay,
+      .recoveredDisplay {
+        flex: 1 1 100px;
+        display: flex;
+        align-items: center;
+        font-size: 0.875rem;
+        max-width: 100px;
+        color: $font-dark;
+        cursor: pointer;
       }
 
-      > input,
-      span {
-        flex: 1 1 auto;
-        cursor: inherit;
-      }
-    }
+      .checkbox {
+        position: relative;
+        display: flex;
 
-    .deathsDisplay {
-      background: $accessible-danger-background;
-    }
-    .confirmedDisplay {
-      background: $accessible-warning-background;
-    }
-    .recoveredDisplay {
-      background: $accessible-success-background;
-    }
-  }
+        .styledInput {
+          width: 1rem;
+          height: 1rem;
+          margin-right: 0.5rem;
+          cursor: pointer;
+          position: relative;
 
-  .graphData {
-    display: grid;
-    grid-template-columns: 80px auto;
-    gap: 0.5rem;
-    align-items: center;
-    margin: 1rem 0 2rem;
+          &.deathsViewControl {
+            background: $accessible-danger-background;
+          }
+          &.confirmedViewControl {
+            background: $accessible-warning-background;
+          }
+          &.recoveredViewControl {
+            background: $accessible-success-background;
+          }
 
-    .graphDateEntry {
-      margin: 0;
-      font-size: 0.875rem;
-    }
+          &.isChecked::before {
+            content: '\2714';
+            color: $app-white;
+            position: absolute;
+            top: -2px;
+            left: 2px;
+          }
+        }
 
-    .graphDateData {
-      color: $font-dark;
-      font-size: 0.75rem;
-      margin: 0;
-      display: grid;
-      grid-auto-rows: 1.25rem;
-      row-gap: 0.175rem;
-
-      .danger,
-      .warning,
-      .success {
-        line-height: 1.25rem;
-        padding-left: 0.5rem;
-        border-radius: 2px;
-
-        &.noData {
-          padding-left: 0;
+        .hiddenInput {
+          position: absolute;
+          visibility: hidden;
         }
       }
+    }
 
-      .danger {
-        background: $accessible-danger-background;
+    .graphData {
+      display: grid;
+      grid-template-columns: 80px auto;
+      gap: 0.5rem;
+      align-items: center;
+      margin: 1rem 0 2rem;
+
+      .graphDateEntry {
+        margin: 0;
+        font-size: 0.875rem;
       }
 
-      .warning {
-        background: $accessible-warning-background;
-      }
+      .graphDateData {
+        color: $font-dark;
+        font-size: 0.75rem;
+        margin: 0;
+        display: grid;
+        grid-auto-rows: 1.25rem;
+        row-gap: 0.175rem;
 
-      .success {
-        background: $accessible-success-background;
+        .danger,
+        .warning,
+        .success {
+          line-height: 1.25rem;
+          padding-left: 0.5rem;
+          border-radius: 2px;
+
+          &.noData {
+            padding-left: 0;
+          }
+        }
+
+        .danger {
+          background: $accessible-danger-background;
+        }
+
+        .warning {
+          background: $accessible-warning-background;
+        }
+
+        .success {
+          background: $accessible-success-background;
+        }
       }
     }
   }
