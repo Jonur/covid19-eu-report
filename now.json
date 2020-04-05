@@ -32,6 +32,10 @@
       "dest": "/icons/warning-check.svg"
     },
     {
+      "src": "^/euStars.png$",
+      "dest": "/euStars.png"
+    },
+    {
       "src": "^/robots.txt$",
       "dest": "/robots.txt"
     },
