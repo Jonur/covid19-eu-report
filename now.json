@@ -16,8 +16,20 @@
       "dest": "/eufavicon.png"
     },
     {
-      "src": "^/euStars.png$",
-      "dest": "/euStars.png"
+      "src": "^/icons/minus.svg$",
+      "dest": "/icons/minus.svg"
+    },
+    {
+      "src": "^/icons/plus.svg$",
+      "dest": "/icons/plus.svg"
+    },
+    {
+      "src": "^/icons/stats.svg$",
+      "dest": "/icons/stats.svg"
+    },
+    {
+      "src": "^/icons/warning-check.svg$",
+      "dest": "/icons/warning-check.svg"
     },
     {
       "src": "^/robots.txt$",

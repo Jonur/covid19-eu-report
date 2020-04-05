@@ -7,6 +7,7 @@ import s from './SectionTitle.module.scss';
 const SectionTitle = ({
   alerting,
   ariaLabelledBy,
+  icon,
   sectionTotals,
   sectionNew,
   expandedSection,
@@ -16,6 +17,13 @@ const SectionTitle = ({
 }) => (
   <>
     <h1 id={ariaLabelledBy} className={s.sectionTitle}>
+      {icon && (
+        <img
+          src={`icons/${icon}.svg`}
+          alt={`${sectionTitle} icon`}
+          className={s.icon}
+        />
+      )}
       {sectionTitle}
     </h1>
     <h2

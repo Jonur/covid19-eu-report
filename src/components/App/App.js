@@ -67,6 +67,7 @@ const App = () => {
           data={countiesTotalsToDate}
           dataProp="totalDeaths"
           dataPropSecondary="deathsLast24h"
+          icon="minus"
           sectionTotals={`${formatThousands(euTotals.current.deaths)}`}
           sectionNew={`${formatThousands(euTotals.new.deaths)}`}
           sectionTitle="EU deaths"
@@ -78,6 +79,7 @@ const App = () => {
           data={countiesTotalsToDate}
           dataProp="totalCases"
           dataPropSecondary="casesLast24h"
+          icon="warning-check"
           sectionTotals={`${formatThousands(euTotals.current.confirmed)}`}
           sectionNew={`${formatThousands(euTotals.new.confirmed)}`}
           sectionTitle="EU Confirmed cases"
@@ -89,6 +91,7 @@ const App = () => {
           data={countiesTotalsToDate}
           dataProp="totalRecovered"
           dataPropSecondary="recoveredLast24h"
+          icon="plus"
           sectionTotals={`${formatThousands(euTotals.current.recovered)}`}
           sectionNew={`${formatThousands(euTotals.new.recovered)}`}
           sectionTitle="EU Recovered patients"
@@ -97,6 +100,7 @@ const App = () => {
         <GraphSection
           ariaLabelledBy="increase-timeline-title"
           graphData={euTotalsByDate}
+          icon="stats"
           sectionTitle="Useful statistics"
           sectionSubtitle="EU Incidents timeline"
           totals={euTotals.current}

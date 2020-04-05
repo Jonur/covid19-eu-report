@@ -47,6 +47,7 @@ export const TABLE_VIEW_DATA = {
 export const SECTION_TITLE = {
   alerting: string,
   ariaLabelledBy: string.isRequired,
+  icon: string,
   sectionTotals: string,
   sectionNew: string,
   sectionTitle: string,
@@ -63,6 +64,7 @@ export const GRAPH_SECTION = {
       recovered: number.isRequired,
     }).isRequired
   ).isRequired,
+  icon: string,
   sectionSubtitle: string.isRequired,
   sectionTitle: string.isRequired,
   totals: COUNTRY_BASE_DATA,

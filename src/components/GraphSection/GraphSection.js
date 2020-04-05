@@ -10,6 +10,7 @@ const GraphSection = ({
   alerting,
   ariaLabelledBy,
   graphData,
+  icon,
   sectionSubtitle,
   sectionTitle,
   totals,
@@ -20,7 +21,7 @@ const GraphSection = ({
     deaths: true,
     recovered: true,
   });
-  const handleChange = event =>
+  const handleChange = (event) =>
     setOptionsDisplayed({
       ...optionDisplayed,
       [event?.target?.name ?? '']: event?.target?.checked ?? false,
@@ -32,6 +33,7 @@ const GraphSection = ({
         alerting={alerting}
         ariaLabelledBy={ariaLabelledBy}
         expandedSection={expandedSection}
+        icon={icon}
         sectionSubtitle={sectionSubtitle}
         sectionTitle={sectionTitle}
         setExpandedSection={setExpandedSection}
@@ -59,7 +61,7 @@ const GraphSection = ({
             />
           </div>
           <dl className={s.graphData}>
-            {Object.keys(graphData).map(date => (
+            {Object.keys(graphData).map((date) => (
               <Fragment key={date}>
                 <dt className={s.graphDateEntry}>
                   {getHumanFormattedDate(date)}

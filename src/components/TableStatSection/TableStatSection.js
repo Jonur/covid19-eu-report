@@ -9,6 +9,7 @@ const TableStatSection = ({
   data,
   dataProp,
   dataPropSecondary,
+  icon,
   sectionTotals,
   sectionNew,
   sectionTitle,
@@ -21,19 +22,20 @@ const TableStatSection = ({
       <SectionTitle
         ariaLabelledBy={ariaLabelledBy}
         alerting={alerting}
+        expandedSection={expandedSection}
+        icon={icon}
         sectionTotals={sectionTotals}
         sectionNew={sectionNew}
         sectionTitle={sectionTitle}
-        expandedSection={expandedSection}
         setExpandedSection={setExpandedSection}
       />
       {expandedSection && (
         <TableView
+          alerting={alerting}
           data={data}
           dataProp={dataProp}
           dataPropSecondary={dataPropSecondary}
           title={title}
-          alerting={alerting}
         />
       )}
     </section>

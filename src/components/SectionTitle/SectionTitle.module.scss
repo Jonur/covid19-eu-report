@@ -1,11 +1,16 @@
 @import '../../media/variables';
 
 .sectionTitle {
+  display: flex;
   font-size: 1.0625rem;
   font-weight: 500;
   padding: 0 0.5rem;
   margin: 0 0 0.5rem;
   color: $font-dark;
+
+  .icon {
+    margin-right: 0.5rem;
+  }
 }
 
 .sectionSubtitle {
