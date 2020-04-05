@@ -28,7 +28,6 @@ export const EU_COVID19_DATA = {
 };
 
 export const TABLE_VIEW_DATA = {
-  countryStatColumnName: string.isRequired,
   data: arrayOf(
     shape({
       countryName: string.isRequired,

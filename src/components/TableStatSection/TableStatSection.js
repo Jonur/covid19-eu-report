@@ -6,7 +6,6 @@ import s from './TableStatSection.module.scss';
 const TableStatSection = ({
   alerting,
   ariaLabelledBy,
-  countryStatColumnName,
   data,
   dataProp,
   dataPropSecondary,
@@ -30,7 +29,6 @@ const TableStatSection = ({
       />
       {expandedSection && (
         <TableView
-          countryStatColumnName={countryStatColumnName}
           data={data}
           dataProp={dataProp}
           dataPropSecondary={dataPropSecondary}

@@ -64,7 +64,6 @@ const App = () => {
         <TableStatSection
           alerting="danger"
           ariaLabelledBy="total-deaths-title"
-          countryStatColumnName="Deaths"
           data={countiesTotalsToDate}
           dataProp="totalDeaths"
           dataPropSecondary="deathsLast24h"
@@ -76,7 +75,6 @@ const App = () => {
         <TableStatSection
           alerting="warning"
           ariaLabelledBy="total-cases-title"
-          countryStatColumnName="Cases"
           data={countiesTotalsToDate}
           dataProp="totalCases"
           dataPropSecondary="casesLast24h"
@@ -88,7 +86,6 @@ const App = () => {
         <TableStatSection
           alerting="success"
           ariaLabelledBy="total-recovered-title"
-          countryStatColumnName="Recovered"
           data={countiesTotalsToDate}
           dataProp="totalRecovered"
           dataPropSecondary="recoveredLast24h"

@@ -23,6 +23,7 @@ const SectionTitle = ({
       className={classNames(s.sectionSubtitle, {
         [s[alerting]]: alerting,
         [s.compact]: !sectionTotals || !sectionNew,
+        [s.expanded]: expandedSection,
       })}
     >
       {sectionTotals && (

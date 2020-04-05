@@ -1,83 +1,133 @@
-@import '../../media/colours';
+@import '../../media/variables';
 
-.table {
-  width: 100%;
-  border-spacing: 0;
+.tableContainer {
   margin-bottom: 2rem;
 
-  .thead,
-  .tbody,
-  .tfoot {
+  .table {
     width: 100%;
-    text-align: left;
+    border-spacing: 0;
+    margin-bottom: 0.5rem;
+    border: 1px solid $light-grey;
+    box-shadow: $section-shadow;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
 
-    .th {
-      line-height: 2rem;
-      padding: 0;
-      position: relative;
-      cursor: pointer;
+    .thead {
+      height: 45px;
+      background-color: $app-white;
 
-      .columnName {
-        margin-right: 1rem;
-      }
+      .thr {
+        height: 45px;
 
-      .columnSort {
-        position: absolute;
+        .th {
+          line-height: inherit;
+          color: $light-blue;
+          font-weight: 500;
 
-        &:after {
-          content: '\21C5';
-          font-weight: normal;
+          &:first-child {
+            padding-left: 1rem;
+          }
         }
       }
     }
 
-    .tr {
-      border-radius: 2px;
+    .thead,
+    .tbody {
+      width: 100%;
+      text-align: left;
 
-      &:nth-child(even) {
-        background-color: $light-grey;
-      }
-
-      .td {
-        padding: 0;
+      .th {
         line-height: 2rem;
+        padding: 0;
         position: relative;
-        vertical-align: middle;
-        border-radius: 2px;
+        cursor: pointer;
 
-        &:first-child {
-          padding-left: 2.5rem;
+        .columnName {
+          margin-right: 0.5rem;
         }
 
-        .img {
-          margin: 0;
-          position: absolute;
-          left: 0;
-        }
-
-        .secondaryInfo {
-          color: $app-danger;
-          margin-left: 0.25rem;
-          font-size: 0.875rem;
-
-          &.danger {
-            color: $app-danger;
-          }
-
-          &.warning {
-            color: $app-warning;
-          }
-
-          &.success {
-            color: $app-success;
+        .columnSort {
+          &:after {
+            content: '\21C5';
           }
         }
+      }
 
-        &.formerEUcountry {
-          font-size: 0.875rem;
+      .tr {
+        &:nth-child(odd) {
+          background-color: $light-grey;
+        }
+
+        .td {
           padding: 0;
+          line-height: 2rem;
+          position: relative;
+          vertical-align: middle;
+
+          &:first-child {
+            padding-left: 3.5rem;
+          }
+
+          .img {
+            margin: 0;
+            position: absolute;
+            left: 1rem;
+          }
+
+          .secondaryInfo {
+            color: $app-danger;
+            margin-left: 0.25rem;
+            font-size: 0.875rem;
+
+            &.danger {
+              color: $app-danger;
+            }
+
+            &.warning {
+              color: $app-warning;
+            }
+
+            &.success {
+              color: $app-success;
+            }
+          }
+
+          &.formerEUcountry {
+            font-size: 0.875rem;
+            padding-left: 1rem;
+            background-color: $app-white;
+          }
         }
       }
     }
+
+    .thead,
+    .tbody {
+      .tr,
+      .thr {
+        display: grid;
+        grid-template-columns: auto 5rem 4rem;
+        column-gap: 10px;
+        align-items: center;
+
+        .th:last-child,
+        .td:last-child {
+          padding-right: 1rem;
+        }
+
+        @media (min-width: 768px) {
+          grid-template-columns: auto 10rem 10rem;
+        }
+      }
+    }
+
+    .tbody {
+      font-weight: 400;
+    }
+  }
+
+  .tfoot {
+    font-size: 0.8125rem;
+    padding: 0 1rem;
   }
 }

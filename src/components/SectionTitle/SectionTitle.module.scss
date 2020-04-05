@@ -1,4 +1,4 @@
-@import '../../media/colours';
+@import '../../media/variables';
 
 .sectionTitle {
   font-size: 1.0625rem;
@@ -15,12 +15,19 @@
   border: 1px solid $light-grey;
   cursor: pointer;
   border-radius: 0.5rem;
-  box-shadow: 0 8px 10px 0 rgba($app-black, 0.06);
   padding: 0.5rem 0;
+  box-shadow: $section-shadow;
   height: 90px;
+  overflow: hidden;
 
   &.compact {
     height: 61px;
+  }
+
+  &.expanded {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: 0;
   }
 
   .titleTotals,
