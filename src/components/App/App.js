@@ -62,6 +62,18 @@ const App = () => {
       <Header lastUpdate={lastUpdate} />
       <main aria-label="EU COVID-19 Charts" className={s.statWrapper}>
         <TableStatSection
+          alerting="warning"
+          ariaLabelledBy="total-cases-title"
+          data={countiesTotalsToDate}
+          dataProp="totalCases"
+          dataPropSecondary="casesLast24h"
+          icon="warning-check"
+          sectionTotals={`${formatThousands(euTotals.current.confirmed)}`}
+          sectionNew={`${formatThousands(euTotals.new.confirmed)}`}
+          sectionTitle="EU confirmed cases"
+          title="Total confirmed cases table"
+        />
+        <TableStatSection
           alerting="danger"
           ariaLabelledBy="total-deaths-title"
           data={countiesTotalsToDate}
@@ -74,18 +86,6 @@ const App = () => {
           title="Total deaths table"
         />
         <TableStatSection
-          alerting="warning"
-          ariaLabelledBy="total-cases-title"
-          data={countiesTotalsToDate}
-          dataProp="totalCases"
-          dataPropSecondary="casesLast24h"
-          icon="warning-check"
-          sectionTotals={`${formatThousands(euTotals.current.confirmed)}`}
-          sectionNew={`${formatThousands(euTotals.new.confirmed)}`}
-          sectionTitle="EU Confirmed cases"
-          title="Total confirmed cases table"
-        />
-        <TableStatSection
           alerting="success"
           ariaLabelledBy="total-recovered-title"
           data={countiesTotalsToDate}
@@ -94,7 +94,7 @@ const App = () => {
           icon="plus"
           sectionTotals={`${formatThousands(euTotals.current.recovered)}`}
           sectionNew={`${formatThousands(euTotals.new.recovered)}`}
-          sectionTitle="EU Recovered patients"
+          sectionTitle="EU recovered patients"
           title="Recovered patients table"
         />
         <GraphSection

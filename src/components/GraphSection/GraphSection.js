@@ -42,16 +42,16 @@ const GraphSection = ({
         <div className={s.graphStatsContainer}>
           <div className={s.displayOptions}>
             <GraphSectionOptionControl
-              property="deaths"
-              optionDisplayed={optionDisplayed}
-              handleChange={handleChange}
-              label="Deaths"
-            />
-            <GraphSectionOptionControl
               property="confirmed"
               optionDisplayed={optionDisplayed}
               handleChange={handleChange}
               label="Confirmed"
+            />
+            <GraphSectionOptionControl
+              property="deaths"
+              optionDisplayed={optionDisplayed}
+              handleChange={handleChange}
+              label="Deaths"
             />
             <GraphSectionOptionControl
               property="recovered"
@@ -69,18 +69,18 @@ const GraphSection = ({
                   </span>
                 </dt>
                 <dd className={s.graphDateData}>
-                  {optionDisplayed.deaths && (
-                    <GraphSectionLine
-                      className={s.danger}
-                      self={graphData[date].deaths}
-                      total={totals.deaths}
-                    />
-                  )}
                   {optionDisplayed.confirmed && (
                     <GraphSectionLine
                       className={s.warning}
                       self={graphData[date].confirmed}
                       total={totals.confirmed}
+                    />
+                  )}
+                  {optionDisplayed.deaths && (
+                    <GraphSectionLine
+                      className={s.danger}
+                      self={graphData[date].deaths}
+                      total={totals.deaths}
                     />
                   )}
                   {optionDisplayed.recovered && (

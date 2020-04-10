@@ -29,18 +29,18 @@ const PiechartSection = ({
       {expandedSection && (
         <section className={s.piecharts}>
           <Piechart
-            className={s.labelDeaths}
-            piechartColour={s.piechartDeaths}
-            title="Total deaths"
-            trackingTitle="EU Deaths"
-            trackingValue={euPercentVsRoW.deaths}
-          />
-          <Piechart
             className={s.labelConfirmed}
             piechartColour={s.piechartConfirmed}
             title="Total confirmed"
             trackingTitle="EU Confirmed"
             trackingValue={euPercentVsRoW.confirmed}
+          />
+          <Piechart
+            className={s.labelDeaths}
+            piechartColour={s.piechartDeaths}
+            title="Total deaths"
+            trackingTitle="EU Deaths"
+            trackingValue={euPercentVsRoW.deaths}
           />
           <Piechart
             className={s.labelRecovered}
