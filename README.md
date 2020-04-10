@@ -37,4 +37,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 [@pomber's](https://github.com/pomber) - data for the COVID-19 epidemic ([covid19](https://pomber.github.io/covid19/timeseries.json) repository)
 
-[Maria Panelli](https://www.linkedin.com/in/maria-panelli-580045144/) - QA and review
+[Maria Panelli](https://www.linkedin.com/in/maria-panelli/) - QA and review
+
+[Eleana Gkogka](https://www.linkedin.com/in/eleanagkogka/) - UX & UI
