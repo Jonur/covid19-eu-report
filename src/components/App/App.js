@@ -102,7 +102,7 @@ const App = () => {
           graphData={euTotalsByDate}
           icon="stats"
           sectionTitle="Useful statistics"
-          sectionSubtitle="EU Incidents timeline"
+          sectionSubtitle="EU totals timeline"
           totals={euTotals.current}
         />
         <PiechartSection

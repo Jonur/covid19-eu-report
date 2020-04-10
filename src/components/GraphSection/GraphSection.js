@@ -1,9 +1,8 @@
-import React, { Fragment, useState } from 'react';
-import GraphSectionLine from './GraphSectionLine';
-import GraphSectionOptionControl from './GraphSectionOptionControl';
+import React, { useState } from 'react';
+import GraphLinesDataList from './GraphLinesDataList';
+import GraphDisplayOptions from './GraphDisplayOptions';
 import { GRAPH_SECTION } from '../../definitions/propTypes';
 import { SectionTitle } from '..';
-import { getHumanFormattedDate } from '../../utils/dataPresentationUtils';
 import s from './GraphSection.module.scss';
 
 const GraphSection = ({
@@ -40,60 +39,15 @@ const GraphSection = ({
       />
       {expandedSection && (
         <div className={s.graphStatsContainer}>
-          <div className={s.displayOptions}>
-            <GraphSectionOptionControl
-              property="confirmed"
-              optionDisplayed={optionDisplayed}
-              handleChange={handleChange}
-              label="Confirmed"
-            />
-            <GraphSectionOptionControl
-              property="deaths"
-              optionDisplayed={optionDisplayed}
-              handleChange={handleChange}
-              label="Deaths"
-            />
-            <GraphSectionOptionControl
-              property="recovered"
-              optionDisplayed={optionDisplayed}
-              handleChange={handleChange}
-              label="Recovered"
-            />
-          </div>
-          <dl className={s.graphData}>
-            {Object.keys(graphData).map((date) => (
-              <Fragment key={date}>
-                <dt className={s.graphDateEntry}>
-                  <span className={s.bubble}>
-                    {getHumanFormattedDate(date)}
-                  </span>
-                </dt>
-                <dd className={s.graphDateData}>
-                  {optionDisplayed.confirmed && (
-                    <GraphSectionLine
-                      className={s.warning}
-                      self={graphData[date].confirmed}
-                      total={totals.confirmed}
-                    />
-                  )}
-                  {optionDisplayed.deaths && (
-                    <GraphSectionLine
-                      className={s.danger}
-                      self={graphData[date].deaths}
-                      total={totals.deaths}
-                    />
-                  )}
-                  {optionDisplayed.recovered && (
-                    <GraphSectionLine
-                      className={s.success}
-                      self={graphData[date].recovered}
-                      total={totals.recovered}
-                    />
-                  )}
-                </dd>
-              </Fragment>
-            ))}
-          </dl>
+          <GraphDisplayOptions
+            optionDisplayed={optionDisplayed}
+            handleChange={handleChange}
+          />
+          <GraphLinesDataList
+            graphData={graphData}
+            optionDisplayed={optionDisplayed}
+            totals={totals}
+          />
         </div>
       )}
     </section>

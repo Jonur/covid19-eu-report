@@ -54,9 +54,15 @@ export const SECTION_TITLE = {
   sectionSubtitle: string,
 };
 
-export const GRAPH_SECTION = {
-  alerting: string,
-  ariaLabelledBy: string.isRequired,
+export const GRAPH_SECTION_OPTON = {
+  optionDisplayed: shape({
+    confirmed: bool.isRequired,
+    deaths: bool.isRequired,
+    recovered: bool.isRequired,
+  }).isRequired,
+};
+
+export const GRAPH_DATA_LIST = {
   graphData: objectOf(
     shape({
       confirmed: number.isRequired,
@@ -64,20 +70,27 @@ export const GRAPH_SECTION = {
       recovered: number.isRequired,
     }).isRequired
   ).isRequired,
-  icon: string,
-  sectionSubtitle: string.isRequired,
-  sectionTitle: string.isRequired,
   totals: COUNTRY_BASE_DATA,
 };
 
+export const GRAPH_SECTION = {
+  ...GRAPH_DATA_LIST,
+  alerting: string,
+  ariaLabelledBy: string.isRequired,
+  icon: string,
+  sectionSubtitle: string.isRequired,
+  sectionTitle: string.isRequired,
+};
+
 export const GRAPH_SECTION_OPTION_CONTROL = {
+  ...GRAPH_SECTION_OPTON,
   property: string.isRequired,
   label: string.isRequired,
-  optionDisplayed: shape({
-    confirmed: bool.isRequired,
-    deaths: bool.isRequired,
-    recovered: bool.isRequired,
-  }).isRequired,
+  handleChange: func.isRequired,
+};
+
+export const GRAPH_DISPLAY_OPTIONS = {
+  ...GRAPH_SECTION_OPTON,
   handleChange: func.isRequired,
 };
 
