@@ -64,7 +64,9 @@ const GraphSection = ({
             {Object.keys(graphData).map((date) => (
               <Fragment key={date}>
                 <dt className={s.graphDateEntry}>
-                  {getHumanFormattedDate(date)}
+                  <span className={s.bubble}>
+                    {getHumanFormattedDate(date)}
+                  </span>
                 </dt>
                 <dd className={s.graphDateData}>
                   {optionDisplayed.deaths && (

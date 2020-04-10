@@ -10,22 +10,22 @@ $expanded-section-shadow: -2px 5px 10px 2px rgba($app-black, 0.01),
 
 $accessible-danger-background: repeating-linear-gradient(
   -45deg,
-  rgba($app-danger, 0.5),
-  rgba($app-danger, 0.5) 1px,
-  rgba($app-danger, 0.8) 2px,
-  rgba($app-danger, 0.8) 7px
+  rgba($app-danger, 0.7),
+  rgba($app-danger, 0.7) 1px,
+  rgba($app-danger, 1) 2px,
+  rgba($app-danger, 1) 7px
 );
 $accessible-warning-background: repeating-linear-gradient(
   0deg,
-  rgba($app-warning, 0.3),
-  rgba($app-warning, 0.3) 1px,
-  rgba($app-warning, 0.2) 1px,
-  rgba($app-warning, 0.2) 5px
+  rgba($app-warning, 1),
+  rgba($app-warning, 1) 1px,
+  rgba($app-warning, 0.7) 1px,
+  rgba($app-warning, 0.7) 4px
 );
 $accessible-success-background: repeating-linear-gradient(
   90deg,
-  rgba($app-success, 0.3),
-  rgba($app-success, 0.3) 2px,
-  rgba($app-success, 0.2) 2px,
-  rgba($app-success, 0.2) 5px
+  rgba($app-success, 0.7),
+  rgba($app-success, 0.7) 2px,
+  rgba($app-success, 1) 2px,
+  rgba($app-success, 1) 8px
 );

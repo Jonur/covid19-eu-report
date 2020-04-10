@@ -5,7 +5,7 @@ export const getHumanFormattedDate = (date) => {
   const humanDate = new Date(date);
   return `${humanDate.getDate()} ${
     MONTHS[humanDate.getMonth()][1]
-  } ${humanDate.getFullYear()}`;
+  } ${humanDate.getFullYear().toString().slice(0, -2)}`;
 };
 
 export const getStatLineWidth = (entry, total) =>

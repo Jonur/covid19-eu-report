@@ -18,6 +18,7 @@
       display: flex;
       justify-content: space-around;
       height: 45px;
+      font-weight: 500;
 
       .deathsDisplay,
       .confirmedDisplay,
@@ -41,23 +42,34 @@
           margin-right: 0.5rem;
           cursor: pointer;
           position: relative;
+          border-radius: 2px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
           &.deathsViewControl {
-            background: $accessible-danger-background;
+            background: $app-danger;
           }
           &.confirmedViewControl {
-            background: $accessible-warning-background;
+            background: $app-warning;
           }
           &.recoveredViewControl {
-            background: $accessible-success-background;
+            background: $app-success;
           }
 
-          &.isChecked::before {
-            content: '\2714';
-            color: $app-white;
-            position: absolute;
-            top: -2px;
-            left: 2px;
+          &.isChecked {
+            &.deathsViewControl {
+              background: $app-danger url('../../media/svg/check.svg') center
+                no-repeat;
+            }
+            &.confirmedViewControl {
+              background: $app-warning url('../../media/svg/check.svg') center
+                no-repeat;
+            }
+            &.recoveredViewControl {
+              background: $app-success url('../../media/svg/check.svg') center
+                no-repeat;
+            }
           }
         }
 
@@ -74,10 +86,25 @@
       gap: 0.5rem;
       align-items: center;
       margin: 1rem 0 2rem;
+      font-weight: 600;
 
       .graphDateEntry {
         margin: 0;
         font-size: 0.875rem;
+        height: 100%;
+        padding-top: 1rem;
+
+        .bubble {
+          background: url('../../media/svg/date-bg-rect.svg') no-repeat;
+          color: $app-white;
+          font-weight: 400;
+          font-size: 0.75rem;
+          height: 25px;
+          display: inline-block;
+          line-height: 25px;
+          width: 100%;
+          padding-left: 0.7rem;
+        }
       }
 
       .graphDateData {
@@ -85,15 +112,22 @@
         font-size: 0.75rem;
         margin: 0;
         display: grid;
-        grid-auto-rows: 1.25rem;
+        grid-auto-rows: 1.5rem 0.325rem;
         row-gap: 0.175rem;
+
+        .graphSectionLineData {
+          line-height: 2.1rem;
+        }
 
         .danger,
         .warning,
         .success {
-          line-height: 1.25rem;
           padding-left: 0.5rem;
           border-radius: 2px;
+          height: 100%;
+          background-size: 100% 6px;
+          background-position: bottom;
+          background-repeat: no-repeat;
 
           &.noData {
             padding-left: 0;
@@ -101,15 +135,15 @@
         }
 
         .danger {
-          background: $accessible-danger-background;
+          background-image: $accessible-danger-background;
         }
 
         .warning {
-          background: $accessible-warning-background;
+          background-image: $accessible-warning-background;
         }
 
         .success {
-          background: $accessible-success-background;
+          background-image: $accessible-success-background;
         }
       }
     }

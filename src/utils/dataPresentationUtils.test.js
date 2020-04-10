@@ -10,7 +10,7 @@ describe('dataPresentationUtils', () => {
   describe('getHumanFormattedDate', () => {
     it('should return a given YYYY-MM-DD type date and convert it to a literal format', () => {
       const result = getHumanFormattedDate('2020-5-3');
-      expect(result).toBe('3 May 2020');
+      expect(result).toBe('3 May 20');
     });
   });
 
@@ -29,7 +29,18 @@ describe('dataPresentationUtils', () => {
 
     it('return EU totals by selecting the result of the newest entry', () => {
       const result = getEUtotals(euTotals);
-      expect(result).toEqual(euTotals['2020-12-5']);
+      expect(result).toEqual({
+        current: {
+          confirmed: 30,
+          deaths: 30,
+          recovered: 30,
+        },
+        new: {
+          confirmed: 10,
+          deaths: 0,
+          recovered: 10,
+        },
+      });
     });
   });
 
