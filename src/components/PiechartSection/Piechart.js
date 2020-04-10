@@ -20,7 +20,6 @@ const Piechart = ({
 
   return (
     <section className={s.piechartContainer}>
-      <h3 className={s.piechartTitle}>{title}</h3>
       <div className={s.piechart}>
         <ReactSvgPieChart
           data={chartData}
@@ -28,10 +27,13 @@ const Piechart = ({
           strokeWidth={0}
           startAngle={-90}
         />
-        <ul className={s.piechartDetails}>
-          <li className={className}>{`EU (${chartData[0].value}%)`}</li>
-          <li>World</li>
-        </ul>
+        <div className={s.piechartDetails}>
+          <h3 className={s.piechartTitle}>{title}</h3>
+          <ul className={s.piechartDetails}>
+            <li className={className}>{`EU (${chartData[0].value}%)`}</li>
+            <li>World</li>
+          </ul>
+        </div>
       </div>
     </section>
   );

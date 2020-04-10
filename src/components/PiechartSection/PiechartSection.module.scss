@@ -7,6 +7,14 @@
   .piecharts {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0.5rem;
+    border: 1px solid $light-grey;
+    box-shadow: $expanded-section-shadow;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 0 1rem;
+    background-color: $app-white;
+    font-weight: 400;
 
     .piechartContainer {
       margin-bottom: 2rem;
@@ -18,37 +26,46 @@
         margin-top: 1rem;
 
         .piechartDetails {
-          list-style-type: none;
-          margin: 0 0 0 2rem;
-          padding: 0;
+          .piechartTitle {
+            margin: 0 0 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+          }
 
-          li {
-            display: flex;
-            height: 1.5rem;
-            align-items: center;
-            margin-bottom: 0.5rem;
+          ul {
+            list-style-type: none;
+            margin: 0 0 0 2rem;
+            padding: 0;
 
-            &::before {
-              content: '';
-              width: 1.5rem;
+            li {
+              display: flex;
               height: 1.5rem;
-              margin-right: 0.5rem;
-            }
+              align-items: center;
+              margin-bottom: 0.5rem;
 
-            &.labelDeaths::before {
-              background-color: $app-danger;
-            }
+              &::before {
+                content: '';
+                width: 1rem;
+                height: 1rem;
+                margin-right: 0.5rem;
+                border-radius: 2px;
+              }
 
-            &.labelConfirmed::before {
-              background-color: $app-warning;
-            }
+              &.labelDeaths::before {
+                background-color: $app-danger;
+              }
 
-            &.labelRecovered::before {
-              background-color: $app-success;
-            }
+              &.labelConfirmed::before {
+                background-color: $app-warning;
+              }
 
-            &:nth-child(even)::before {
-              background-color: $app-piechart-bg;
+              &.labelRecovered::before {
+                background-color: $app-success;
+              }
+
+              &:nth-child(even)::before {
+                background-color: $app-piechart-bg;
+              }
             }
           }
         }
@@ -67,14 +84,21 @@
       .piechartContainer {
         flex: 1 1;
 
-        .piechartTitle {
-          text-align: center;
-        }
-
         .piechart {
           flex-direction: column;
-          height: 235px;
+          height: 270px;
           justify-content: space-between;
+
+          .piechartDetails {
+            ul {
+              margin: 0;
+            }
+
+            .piechartTitle {
+              margin: 1.5rem 0 1rem 0;
+              text-align: center;
+            }
+          }
         }
       }
     }
