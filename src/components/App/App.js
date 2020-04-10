@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
+  CountryGraphSection,
   Footer,
   GraphSection,
   Header,
@@ -35,6 +36,7 @@ const App = () => {
 
       setAppData({
         countiesTotalsToDate,
+        euCovidData,
         euTotals,
         euTotalsByDate,
         lastUpdate,
@@ -51,6 +53,7 @@ const App = () => {
 
   const {
     countiesTotalsToDate,
+    euCovidData,
     euTotals,
     euTotalsByDate,
     lastUpdate,
@@ -104,6 +107,11 @@ const App = () => {
           sectionTitle="Useful statistics"
           sectionSubtitle="EU totals timeline"
           totals={euTotals.current}
+        />
+        <CountryGraphSection
+          ariaLabelledBy="countr-increase-timeline-title"
+          graphData={euCovidData}
+          sectionSubtitle="Every EU country's timeline"
         />
         <PiechartSection
           ariaLabelledBy="eu-row-totals"

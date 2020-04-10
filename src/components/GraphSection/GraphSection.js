@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import GraphLinesDataList from './GraphLinesDataList';
-import GraphDisplayOptions from './GraphDisplayOptions';
+import GraphSectionResult from './GraphSectionResult';
 import { GRAPH_SECTION } from '../../definitions/propTypes';
 import { SectionTitle } from '..';
 import s from './GraphSection.module.scss';
@@ -38,17 +37,12 @@ const GraphSection = ({
         setExpandedSection={setExpandedSection}
       />
       {expandedSection && (
-        <div className={s.graphStatsContainer}>
-          <GraphDisplayOptions
-            optionDisplayed={optionDisplayed}
-            handleChange={handleChange}
-          />
-          <GraphLinesDataList
-            graphData={graphData}
-            optionDisplayed={optionDisplayed}
-            totals={totals}
-          />
-        </div>
+        <GraphSectionResult
+          graphData={graphData}
+          handleChange={handleChange}
+          optionDisplayed={optionDisplayed}
+          totals={totals}
+        />
       )}
     </section>
   );

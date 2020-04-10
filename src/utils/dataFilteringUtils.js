@@ -148,11 +148,11 @@ export const getLastUpdateFromData = (data = {}) => {
   return '';
 };
 
-export const getAllRecordsDates = (euCovidData) =>
-  euCovidData[EU_COUNTRIES[0]]?.map((entry) => entry.date) ?? [];
+export const getAllRecordsDates = (euCovidData, country = EU_COUNTRIES[0]) =>
+  euCovidData[country]?.map((entry) => entry.date) ?? [];
 
-export const getEUTotalsByDate = (euCovidData) =>
-  getAllRecordsDates(euCovidData).reduce(
+export const getEUTotalsByDate = (euCovidData, country) =>
+  getAllRecordsDates(euCovidData, country).reduce(
     (euDatesTotals, date, index) => ({
       ...euDatesTotals,
       [date]: Object.values(euCovidData).reduce(
@@ -168,7 +168,12 @@ export const getEUTotalsByDate = (euCovidData) =>
     {}
   );
 
-export const getEUTotalsByDateNewestFirst = (euCovidData) => {
-  const euTotalsByDate = getEUTotalsByDate(euCovidData);
+export const getEUTotalsByDateNewestFirst = (euCovidData, country) => {
+  const dataOrigin = !country
+    ? euCovidData
+    : {
+        [country]: euCovidData[country],
+      };
+  const euTotalsByDate = getEUTotalsByDate(dataOrigin, country);
   return chain(euTotalsByDate).toPairs().reverse().fromPairs().value();
 };

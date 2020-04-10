@@ -13,139 +13,139 @@
     padding: 0 1rem;
     background-color: $app-white;
     font-weight: 400;
+  }
+}
 
-    .displayOptions {
+.displayOptions {
+  display: flex;
+  justify-content: space-around;
+  height: 45px;
+  font-weight: 500;
+
+  .deathsDisplay,
+  .confirmedDisplay,
+  .recoveredDisplay {
+    flex: 1 1 100px;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    max-width: 100px;
+    color: $font-dark;
+    cursor: pointer;
+  }
+
+  .checkbox {
+    position: relative;
+    display: flex;
+
+    .styledInput {
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.5rem;
+      cursor: pointer;
+      position: relative;
+      border-radius: 2px;
       display: flex;
-      justify-content: space-around;
-      height: 45px;
-      font-weight: 500;
+      align-items: center;
+      justify-content: center;
 
-      .deathsDisplay,
-      .confirmedDisplay,
-      .recoveredDisplay {
-        flex: 1 1 100px;
-        display: flex;
-        align-items: center;
-        font-size: 0.875rem;
-        max-width: 100px;
-        color: $font-dark;
-        cursor: pointer;
+      &.deathsViewControl {
+        background: $app-danger;
+      }
+      &.confirmedViewControl {
+        background: $app-warning;
+      }
+      &.recoveredViewControl {
+        background: $app-success;
       }
 
-      .checkbox {
-        position: relative;
-        display: flex;
-
-        .styledInput {
-          width: 1rem;
-          height: 1rem;
-          margin-right: 0.5rem;
-          cursor: pointer;
-          position: relative;
-          border-radius: 2px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          &.deathsViewControl {
-            background: $app-danger;
-          }
-          &.confirmedViewControl {
-            background: $app-warning;
-          }
-          &.recoveredViewControl {
-            background: $app-success;
-          }
-
-          &.isChecked {
-            &.deathsViewControl {
-              background: $app-danger url('../../media/svg/check.svg') center
-                no-repeat;
-            }
-            &.confirmedViewControl {
-              background: $app-warning url('../../media/svg/check.svg') center
-                no-repeat;
-            }
-            &.recoveredViewControl {
-              background: $app-success url('../../media/svg/check.svg') center
-                no-repeat;
-            }
-          }
+      &.isChecked {
+        &.deathsViewControl {
+          background: $app-danger url('../../media/svg/check.svg') center
+            no-repeat;
         }
-
-        .hiddenInput {
-          position: absolute;
-          visibility: hidden;
+        &.confirmedViewControl {
+          background: $app-warning url('../../media/svg/check.svg') center
+            no-repeat;
+        }
+        &.recoveredViewControl {
+          background: $app-success url('../../media/svg/check.svg') center
+            no-repeat;
         }
       }
     }
 
-    .graphData {
-      display: grid;
-      grid-template-columns: 80px auto;
-      gap: 0.5rem;
-      align-items: center;
-      margin: 1rem 0 2rem;
-      font-weight: 600;
+    .hiddenInput {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+}
 
-      .graphDateEntry {
-        margin: 0;
-        font-size: 0.875rem;
-        height: 100%;
-        padding-top: 1rem;
+.graphData {
+  display: grid;
+  grid-template-columns: 80px auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1rem 0 2rem;
+  font-weight: 600;
 
-        .bubble {
-          background: url('../../media/svg/date-bg-rect.svg') no-repeat;
-          color: $app-white;
-          font-weight: 400;
-          font-size: 0.75rem;
-          height: 25px;
-          display: inline-block;
-          line-height: 25px;
-          width: 100%;
-          padding-left: 0.7rem;
-        }
+  .graphDateEntry {
+    margin: 0;
+    font-size: 0.875rem;
+    height: 100%;
+    padding-top: 1rem;
+
+    .bubble {
+      background: url('../../media/svg/date-bg-rect.svg') no-repeat;
+      color: $app-white;
+      font-weight: 400;
+      font-size: 0.75rem;
+      height: 25px;
+      display: inline-block;
+      line-height: 25px;
+      width: 100%;
+      padding-left: 0.5rem;
+    }
+  }
+
+  .graphDateData {
+    color: $font-dark;
+    font-size: 0.75rem;
+    margin: 0;
+    display: grid;
+    grid-auto-rows: 1.5rem 0.325rem;
+    row-gap: 0.175rem;
+
+    .graphSectionLineData {
+      line-height: 2.1rem;
+    }
+
+    .danger,
+    .warning,
+    .success {
+      padding-left: 0.5rem;
+      border-radius: 2px;
+      height: 100%;
+      background-size: 100% 6px;
+      background-position: bottom;
+      background-repeat: no-repeat;
+
+      &.noData {
+        padding-left: 0;
       }
+    }
 
-      .graphDateData {
-        color: $font-dark;
-        font-size: 0.75rem;
-        margin: 0;
-        display: grid;
-        grid-auto-rows: 1.5rem 0.325rem;
-        row-gap: 0.175rem;
+    .danger {
+      background-image: $accessible-danger-background;
+    }
 
-        .graphSectionLineData {
-          line-height: 2.1rem;
-        }
+    .warning {
+      background-image: $accessible-warning-background;
+    }
 
-        .danger,
-        .warning,
-        .success {
-          padding-left: 0.5rem;
-          border-radius: 2px;
-          height: 100%;
-          background-size: 100% 6px;
-          background-position: bottom;
-          background-repeat: no-repeat;
-
-          &.noData {
-            padding-left: 0;
-          }
-        }
-
-        .danger {
-          background-image: $accessible-danger-background;
-        }
-
-        .warning {
-          background-image: $accessible-warning-background;
-        }
-
-        .success {
-          background-image: $accessible-success-background;
-        }
-      }
+    .success {
+      background-image: $accessible-success-background;
     }
   }
 }

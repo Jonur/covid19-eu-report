@@ -1,0 +1,29 @@
+@import '../../media/variables';
+
+.section {
+  max-width: 750px;
+  margin: 0 auto 0.5rem;
+
+  .countryGraphSectionContainer {
+    margin-bottom: 0.5rem;
+    border: 1px solid $light-grey;
+    box-shadow: $expanded-section-shadow;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    padding: 0 1rem;
+    background-color: $app-white;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+
+    .select {
+      height: 2rem;
+      width: 100%;
+      max-width: 250px;
+      padding: 0 0.5rem;
+      font-weight: 500;
+      border: 1px solid $light-grey;
+      margin: 0.5rem auto;
+    }
+  }
+}

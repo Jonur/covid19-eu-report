@@ -213,13 +213,19 @@ describe('dataFilteringUtils', () => {
   });
 
   describe('getAllRecordsDates', () => {
-    it('should get all data dates from the first EU result', () => {
-      const result = utils.getAllRecordsDates({
-        Austria: [{ date: '2020-11-5' }, { date: '2020-12-5' }],
-        Greece: [{ date: '2020-12-15' }, { date: '2020-12-15' }],
-      });
+    const countryData = {
+      Austria: [{ date: '2020-11-5' }, { date: '2020-12-5' }],
+      Greece: [{ date: '2020-12-15' }, { date: '2020-12-16' }],
+    };
 
+    it('should get all data dates from the first EU result', () => {
+      const result = utils.getAllRecordsDates(countryData);
       expect(result).toEqual(['2020-11-5', '2020-12-5']);
+    });
+
+    it('should get all data dates from the given EU result', () => {
+      const result = utils.getAllRecordsDates(countryData, 'Greece');
+      expect(result).toEqual(['2020-12-15', '2020-12-16']);
     });
   });
 
@@ -241,17 +247,19 @@ describe('dataFilteringUtils', () => {
   });
 
   describe('getEUTotalsByDateNewestFirst', () => {
+    const euCovidData = {
+      Austria: [
+        { confirmed: 10, deaths: 10, recovered: 10, date: '2020-12-5' },
+        { confirmed: 20, deaths: 20, recovered: 20, date: '2020-5-2' },
+      ],
+      Italy: [
+        { confirmed: 10, deaths: 10, recovered: 10, date: '2020-12-5' },
+        { confirmed: 20, deaths: 20, recovered: 20, date: '2020-5-2' },
+      ],
+    };
+
     it('should return the EU totals and organise them in a descending date order', () => {
-      const result = utils.getEUTotalsByDateNewestFirst({
-        Austria: [
-          { confirmed: 10, deaths: 10, recovered: 10, date: '2020-12-5' },
-          { confirmed: 20, deaths: 20, recovered: 20, date: '2020-5-2' },
-        ],
-        Italy: [
-          { confirmed: 10, deaths: 10, recovered: 10, date: '2020-12-5' },
-          { confirmed: 20, deaths: 20, recovered: 20, date: '2020-5-2' },
-        ],
-      });
+      const result = utils.getEUTotalsByDateNewestFirst(euCovidData);
 
       expect(result).toEqual({
         '2020-12-5': {
@@ -263,6 +271,23 @@ describe('dataFilteringUtils', () => {
           confirmed: 40,
           deaths: 40,
           recovered: 40,
+        },
+      });
+    });
+
+    it('should return the totals of Italy and organise them in a descending date order', () => {
+      const result = utils.getEUTotalsByDateNewestFirst(euCovidData, 'Italy');
+
+      expect(result).toEqual({
+        '2020-12-5': {
+          confirmed: 10,
+          deaths: 10,
+          recovered: 10,
+        },
+        '2020-5-2': {
+          confirmed: 20,
+          deaths: 20,
+          recovered: 20,
         },
       });
     });
