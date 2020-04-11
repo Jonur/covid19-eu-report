@@ -10,7 +10,7 @@ const CountryGraphSelect = ({ handleUserSelect, selectedCountry }) => (
     className={s.select}
   >
     <option value={''} disabled>
-      Please select...
+      Select country...
     </option>
     {EU_COUNTRIES.map((country) => (
       <option value={country} key={country}>
