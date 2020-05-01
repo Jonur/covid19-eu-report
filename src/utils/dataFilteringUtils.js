@@ -2,7 +2,6 @@ import { chain, mapValues } from 'lodash';
 import 'fix-date';
 import {
   EU_COUNTRIES,
-  EU_FLAGS,
   FORMER_EU_COUNTRIES,
   MONTHS,
 } from '../definitions/constants';
@@ -34,7 +33,7 @@ export const getEuPercentVsRoW = (rowTotals, euTotals) => ({
 
 export const getEUCovidData = (apiData) =>
   Object.keys(apiData).reduce((euCountries, country) => {
-    if (EU_COUNTRIES.includes(country)) {
+    if (Object.keys(EU_COUNTRIES).includes(country)) {
       return {
         ...euCountries,
         [country]: apiData[country],
@@ -44,8 +43,8 @@ export const getEUCovidData = (apiData) =>
   }, {});
 
 export const getCountryFlagURL = (countryName) =>
-  EU_FLAGS?.[countryName]?.country_code
-    ? `https://www.countryflags.io/${EU_FLAGS[countryName].country_code}/flat/32.png`
+  EU_COUNTRIES?.[countryName]?.alpha2Code
+    ? `https://www.countryflags.io/${EU_COUNTRIES[countryName].alpha2Code}/flat/32.png`
     : '';
 
 export const getTotalPropOfCountry = (countryData, prop) =>
@@ -149,8 +148,10 @@ export const getLastUpdateFromData = (data = {}) => {
   return '';
 };
 
-export const getAllRecordsDates = (euCovidData, country = EU_COUNTRIES[0]) =>
-  euCovidData[country]?.map((entry) => entry.date) ?? [];
+export const getAllRecordsDates = (
+  euCovidData,
+  country = Object.keys(EU_COUNTRIES)[0]
+) => euCovidData[country]?.map((entry) => entry.date) ?? [];
 
 const getDateTotals = (euCovidData, index) => {
   const dateTotals = Object.values(euCovidData).reduce(
