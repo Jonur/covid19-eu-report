@@ -6,6 +6,7 @@ import {
   FORMER_EU_COUNTRIES,
   MONTHS,
 } from '../definitions/constants';
+import { getHumanFormattedDate } from './dataPresentationUtils';
 
 export const getWorldTotals = (apiData) =>
   Object.values(apiData).reduce(
@@ -168,12 +169,35 @@ export const getEUTotalsByDate = (euCovidData, country) =>
     {}
   );
 
-export const getEUTotalsByDateNewestFirst = (euCovidData, country) => {
-  const dataOrigin = !country
+export const getDataOrigin = (euCovidData, country) =>
+  !country
     ? euCovidData
     : {
         [country]: euCovidData[country],
       };
+
+export const getEUTotalsByDateNewestFirst = (euCovidData, country) => {
+  const dataOrigin = getDataOrigin(euCovidData, country);
   const euTotalsByDate = getEUTotalsByDate(dataOrigin, country);
   return chain(euTotalsByDate).toPairs().reverse().fromPairs().value();
+};
+
+export const getCountryNewCasesByDateNewestFirst = (euCovidData, country) => {
+  const dataOrigin = getDataOrigin(euCovidData, country);
+  const countryTimelineToNow = dataOrigin[country].reverse();
+  const allDates = getAllRecordsDates(euCovidData, country);
+
+  return allDates.reduce((newCasesTimeline, dateEntry, index) => {
+    const onThisDate = countryTimelineToNow[index].confirmed;
+    const onTheDateBefore = countryTimelineToNow?.[index + 1]?.confirmed ?? 0;
+    const newCases =
+      onThisDate - onTheDateBefore > 0 ? onThisDate - onTheDateBefore : 0;
+
+    return newCases
+      ? [
+          ...newCasesTimeline,
+          { date: getHumanFormattedDate(dateEntry), 'New Cases': newCases },
+        ]
+      : [...newCasesTimeline];
+  }, []);
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   CountryGraphSection,
+  CurveSection,
   Footer,
   GraphSection,
   Header,
@@ -104,14 +105,19 @@ const App = () => {
           ariaLabelledBy="increase-timeline-title"
           graphData={euTotalsByDate}
           icon="stats"
-          sectionTitle="Useful statistics"
+          sectionTitle="COVID-19 EU statistics"
           sectionSubtitle="EU totals timeline"
           totals={euTotals.current}
         />
         <CountryGraphSection
-          ariaLabelledBy="countr-increase-timeline-title"
+          ariaLabelledBy="country-increase-timeline-title"
           graphData={euCovidData}
-          sectionSubtitle="Every EU country's timeline"
+          sectionSubtitle="Each country's totals timeline"
+        />
+        <CurveSection
+          ariaLabelledBy="new-cases-curve"
+          graphData={euCovidData}
+          sectionSubtitle="Each country's new cases curve"
         />
         <PiechartSection
           ariaLabelledBy="eu-row-totals"

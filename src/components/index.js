@@ -1,5 +1,7 @@
 import App from './App/App';
 import CountryGraphSection from './CountryGraphSection/CountryGraphSection';
+import CountryGraphSelect from './CountryGraphSection/CountryGraphSelect';
+import CurveSection from './CurveSection/CurveSection';
 import Footer from './Footer/Footer';
 import GraphSection from './GraphSection/GraphSection';
 import GraphSectionResult from './GraphSection/GraphSectionResult';
@@ -12,6 +14,8 @@ import TableView from './TableView/TableView';
 export {
   App,
   CountryGraphSection,
+  CountryGraphSelect,
+  CurveSection,
   Footer,
   GraphSection,
   GraphSectionResult,
