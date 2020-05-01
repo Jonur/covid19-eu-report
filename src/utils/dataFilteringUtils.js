@@ -1,4 +1,4 @@
-import { chain, mapValues } from 'lodash';
+import { chain, cloneDeep, mapValues } from 'lodash';
 import 'fix-date';
 import {
   EU_COUNTRIES,
@@ -183,7 +183,7 @@ export const getEUTotalsByDateNewestFirst = (euCovidData, country) => {
 };
 
 export const getCountryNewCasesByDateNewestFirst = (euCovidData, country) => {
-  const dataOrigin = getDataOrigin(euCovidData, country);
+  const dataOrigin = cloneDeep(getDataOrigin(euCovidData, country));
   const countryTimelineToNow = dataOrigin[country].reverse();
   const allDates = getAllRecordsDates(euCovidData, country);
 
