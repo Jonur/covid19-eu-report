@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
 } from 'recharts';
+import { CURVE_LINES } from '../../definitions/propTypes';
 import { lineChart } from '../../media/index.scss';
 
 const CurveLineChart = ({ data, lineDataKey, containerRef }) => (
@@ -24,5 +25,7 @@ const CurveLineChart = ({ data, lineDataKey, containerRef }) => (
     <Line type="monotone" dataKey={lineDataKey} stroke={lineChart} />
   </LineChart>
 );
+
+CurveLineChart.propTypes = CURVE_LINES;
 
 export default CurveLineChart;

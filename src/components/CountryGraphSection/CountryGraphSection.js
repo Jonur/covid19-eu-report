@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { COUNTRY_GRAPHS } from '../../definitions/propTypes';
 import { GraphSectionResult, SectionTitle } from '..';
 import CountryGraphSelect from './CountryGraphSelect';
 import { getEUTotalsByDateNewestFirst } from '../../utils/dataFilteringUtils';
@@ -67,5 +68,7 @@ const CountryGraphSection = ({
     </section>
   );
 };
+
+CountryGraphSection.propTypes = COUNTRY_GRAPHS;
 
 export default CountryGraphSection;

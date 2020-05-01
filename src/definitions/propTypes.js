@@ -3,6 +3,7 @@ import {
   bool,
   func,
   number,
+  object,
   objectOf,
   shape,
   string,
@@ -63,13 +64,7 @@ export const GRAPH_SECTION_OPTON = {
 };
 
 export const GRAPH_DATA_LIST = {
-  graphData: objectOf(
-    shape({
-      confirmed: number.isRequired,
-      deaths: number.isRequired,
-      recovered: number.isRequired,
-    }).isRequired
-  ).isRequired,
+  graphData: objectOf(COUNTRY_BASE_DATA).isRequired,
   totals: COUNTRY_BASE_DATA,
 };
 
@@ -115,4 +110,18 @@ export const PIE_CHART = {
   piechartColour: string.isRequired,
   trackingTitle: string.isRequired,
   trackingValue: number.isRequired,
+};
+
+export const COUNTRY_GRAPHS = {
+  graphData: objectOf(EU_COUNTRY_COVID19_DATA).isRequired,
+  ariaLabelledBy: string.isRequired,
+  sectionSubtitle: string.isRequired,
+};
+
+export const CURVE_LINES = {
+  data: arrayOf(
+    shape({ date: string.isRequired, 'New Cases': number.isRequired })
+  ).isRequired,
+  lineDataKey: string.isRequired,
+  containerRef: object.isRequired,
 };

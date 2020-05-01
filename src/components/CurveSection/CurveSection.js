@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { COUNTRY_GRAPHS } from '../../definitions/propTypes';
 import { CountryGraphSelect, SectionTitle } from '..';
 import CurveLineChart from './CurveLineChart';
 import { getCountryNewCasesByDateNewestFirst } from '../../utils/dataFilteringUtils';
@@ -50,5 +51,7 @@ const CurveSection = ({ ariaLabelledBy, graphData, sectionSubtitle }) => {
     </section>
   );
 };
+
+CurveSection.propTypes = COUNTRY_GRAPHS;
 
 export default CurveSection;
