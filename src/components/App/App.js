@@ -27,9 +27,9 @@ const App = () => {
   const [dataFetched, setDataFetched] = useState(false);
 
   useEffect(() => {
-    getApiData().then((apiData) => {
-      const worldTotals = getWorldTotals(apiData);
-      const euCovidData = getEUCovidData(apiData);
+    getApiData().then(({ covid19data, europeanCountriesData }) => {
+      const worldTotals = getWorldTotals(covid19data);
+      const euCovidData = getEUCovidData(covid19data);
       const lastUpdate = getLastUpdateFromData(euCovidData);
       const countiesTotalsToDate = getCountiesTotalsDate(euCovidData);
       const euTotalsByDate = getEUTotalsByDateNewestFirst(euCovidData);
@@ -37,6 +37,7 @@ const App = () => {
 
       setAppData({
         countiesTotalsToDate,
+        europeanCountriesData,
         euCovidData,
         euTotals,
         euTotalsByDate,
@@ -55,6 +56,7 @@ const App = () => {
   const {
     countiesTotalsToDate,
     euCovidData,
+    europeanCountriesData,
     euTotals,
     euTotalsByDate,
     lastUpdate,
