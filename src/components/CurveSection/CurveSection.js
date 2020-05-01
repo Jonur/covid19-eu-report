@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { cloneDeep } from 'lodash';
 import { COUNTRY_GRAPHS } from '../../definitions/propTypes';
 import { CountryGraphSelect, SectionTitle } from '..';
 import CurveLineChart from './CurveLineChart';
@@ -18,7 +19,7 @@ const CurveSection = ({ ariaLabelledBy, graphData, sectionSubtitle }) => {
       setSelectedCountry(userSelectedCountry);
 
       const newCases = getCountryNewCasesByDateNewestFirst(
-        graphData,
+        cloneDeep(graphData),
         userSelectedCountry
       );
       setDataCurve(newCases);
