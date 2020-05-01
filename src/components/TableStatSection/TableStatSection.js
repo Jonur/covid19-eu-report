@@ -31,7 +31,6 @@ const TableStatSection = ({
       />
       {expandedSection && (
         <TableView
-          alerting={alerting}
           data={data}
           dataProp={dataProp}
           dataPropSecondary={dataPropSecondary}
