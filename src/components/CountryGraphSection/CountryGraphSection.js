@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { COUNTRY_GRAPHS } from '../../definitions/propTypes';
 import { GraphSectionResult, SectionTitle } from '..';
 import CountryGraphSelect from './CountryGraphSelect';
@@ -20,6 +20,12 @@ const CountryGraphSection = ({
     deaths: true,
     recovered: true,
   });
+
+  useEffect(() => {
+    if (!expandedSection) {
+      setSelectedCountry('');
+    }
+  }, [expandedSection]);
 
   const handleChange = (event) =>
     setOptionsDisplayed({

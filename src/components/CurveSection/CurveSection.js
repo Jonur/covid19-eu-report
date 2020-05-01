@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { cloneDeep } from 'lodash';
 import { COUNTRY_GRAPHS } from '../../definitions/propTypes';
 import { CountryGraphSelect, SectionTitle } from '..';
@@ -11,6 +11,12 @@ const CurveSection = ({ ariaLabelledBy, graphData, sectionSubtitle }) => {
   const [selectedCountry, setSelectedCountry] = useState('');
   const [dataCurve, setDataCurve] = useState({});
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    if (!expandedSection) {
+      setSelectedCountry('');
+    }
+  }, [expandedSection]);
 
   const handleUserSelect = (event) => {
     const userSelectedCountry = event?.target?.value || '';
