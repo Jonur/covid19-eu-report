@@ -292,4 +292,29 @@ describe('dataFilteringUtils', () => {
       });
     });
   });
+
+  describe('getCountryNewCasesByDateNewestFirst', () => {
+    const euCovidData = {
+      Austria: [
+        { confirmed: 10, deaths: 10, recovered: 10, date: '2020-12-5' },
+        { confirmed: 20, deaths: 20, recovered: 20, date: '2020-5-2' },
+      ],
+      Italy: [
+        { confirmed: 10, deaths: 10, recovered: 10, date: '2020-12-5' },
+        { confirmed: 20, deaths: 20, recovered: 20, date: '2020-5-2' },
+      ],
+    };
+
+    it('should return the totals of Italy and organise them in a descending date order', () => {
+      const result = utils.getCountryNewCasesByDateNewestFirst(
+        euCovidData,
+        'Italy'
+      );
+
+      expect(result).toEqual([
+        { 'New Cases': 10, date: '2 May 20' },
+        { 'New Cases': 10, date: '5 Dec 20' },
+      ]);
+    });
+  });
 });
