@@ -152,20 +152,35 @@ export const getLastUpdateFromData = (data = {}) => {
 export const getAllRecordsDates = (euCovidData, country = EU_COUNTRIES[0]) =>
   euCovidData[country]?.map((entry) => entry.date) ?? [];
 
+const getDateTotals = (euCovidData, index) => {
+  const dateTotals = Object.values(euCovidData).reduce(
+    (euDayTotals, countryValues) => ({
+      ...euDayTotals,
+      confirmed: euDayTotals.confirmed + countryValues[index].confirmed,
+      deaths: euDayTotals.deaths + countryValues[index].deaths,
+      recovered: euDayTotals.recovered + countryValues[index].recovered,
+    }),
+    { confirmed: 0, deaths: 0, recovered: 0 }
+  );
+
+  return (
+    (dateTotals.confirmed || dateTotals.deaths || dateTotals.recovered) &&
+    dateTotals
+  );
+};
+
 export const getEUTotalsByDate = (euCovidData, country) =>
   getAllRecordsDates(euCovidData, country).reduce(
-    (euDatesTotals, date, index) => ({
-      ...euDatesTotals,
-      [date]: Object.values(euCovidData).reduce(
-        (euDayTotals, countryValues) => ({
-          ...euDayTotals,
-          confirmed: euDayTotals.confirmed + countryValues[index].confirmed,
-          deaths: euDayTotals.deaths + countryValues[index].deaths,
-          recovered: euDayTotals.recovered + countryValues[index].recovered,
-        }),
-        { confirmed: 0, deaths: 0, recovered: 0 }
-      ),
-    }),
+    (euDatesTotals, date, index) => {
+      const dateTotals = getDateTotals(euCovidData, index);
+
+      return dateTotals
+        ? {
+            ...euDatesTotals,
+            [date]: getDateTotals(euCovidData, index),
+          }
+        : { ...euDatesTotals };
+    },
     {}
   );
 
