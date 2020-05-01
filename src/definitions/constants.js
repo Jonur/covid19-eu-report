@@ -1,4 +1,7 @@
-export const DATA_URL = 'https://pomber.github.io/covid19/timeseries.json';
+export const API_ENDPOINTS = {
+  COVID_19: 'https://pomber.github.io/covid19/timeseries.json',
+  EUROPEAN_COUNTRIES: 'https://restcountries.eu/rest/v2/region/europe',
+};
 
 export const EU_COUNTRIES = {
   Austria: { alpha2Code: 'at', alpha3Code: 'AUT' },
