@@ -28,10 +28,12 @@ export const EU_COUNTRIES = {
   Slovenia: { alpha2Code: 'si', alpha3Code: 'SVN' },
   Spain: { alpha2Code: 'es', alpha3Code: 'ESP' },
   Sweden: { alpha2Code: 'se', alpha3Code: 'SWE' },
-  'United Kingdom': { alpha2Code: 'gb', alpha3Code: 'GBR' },
+  'United Kingdom': {
+    alpha2Code: 'gb',
+    alpha3Code: 'GBR',
+    formerEUcountry: true,
+  },
 };
-
-export const FORMER_EU_COUNTRIES = ['United Kingdom'];
 
 export const MONTHS = [
   ['January', 'Jan'],

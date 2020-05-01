@@ -1,10 +1,6 @@
 import { chain, mapValues } from 'lodash';
 import 'fix-date';
-import {
-  EU_COUNTRIES,
-  FORMER_EU_COUNTRIES,
-  MONTHS,
-} from '../definitions/constants';
+import { EU_COUNTRIES, MONTHS } from '../definitions/constants';
 import { getHumanFormattedDate } from './dataPresentationUtils';
 
 export const getWorldTotals = (apiData) =>
@@ -78,7 +74,7 @@ export const getCountiesTotalsDate = (countriesStats) => {
       getTotalPropOfCountryYesterday(countriesStats[country], 'recovered');
 
     const countryNameLabel = `${
-      FORMER_EU_COUNTRIES.includes(country) ? `${country}*` : country
+      EU_COUNTRIES[country].formerEUcountry ? `${country}*` : country
     }`;
 
     return {
