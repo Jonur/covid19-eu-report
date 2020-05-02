@@ -27,32 +27,45 @@ import s from './App.module.scss';
 const App = () => {
   const [appData, setAppData] = useState({});
   const [dataFetched, setDataFetched] = useState(false);
+  const [errorStatus, setErrorStatus] = useState(false);
 
   useEffect(() => {
-    getApiData().then(({ covid19data, europeanCountriesData }) => {
-      const worldTotals = getWorldTotals(covid19data);
-      const euCovidData = getEUCovidData(covid19data);
-      const lastUpdate = getLastUpdateFromData(euCovidData);
-      const countriesTotalsToDate = getcountriesTotalsDate(euCovidData);
-      const euTotalsByDate = getEUTotalsByDateNewestFirst(euCovidData);
-      const euTotals = getEUtotals(euTotalsByDate);
-      const europeanCountriesDataMap = getEuropeCountriesMap(
-        europeanCountriesData
-      );
+    getApiData().then(({ covid19data, europeanCountriesData, error }) => {
+      if (!error) {
+        const worldTotals = getWorldTotals(covid19data);
+        const euCovidData = getEUCovidData(covid19data);
+        const lastUpdate = getLastUpdateFromData(euCovidData);
+        const countriesTotalsToDate = getcountriesTotalsDate(euCovidData);
+        const euTotalsByDate = getEUTotalsByDateNewestFirst(euCovidData);
+        const euTotals = getEUtotals(euTotalsByDate);
+        const europeanCountriesDataMap = getEuropeCountriesMap(
+          europeanCountriesData
+        );
 
-      setAppData({
-        countriesTotalsToDate,
-        europeanCountriesDataMap,
-        euCovidData,
-        euTotals,
-        euTotalsByDate,
-        lastUpdate,
-        worldTotals,
-      });
+        setAppData({
+          countriesTotalsToDate,
+          europeanCountriesDataMap,
+          euCovidData,
+          euTotals,
+          euTotalsByDate,
+          lastUpdate,
+          worldTotals,
+        });
 
-      setDataFetched(true);
+        setDataFetched(true);
+      }
+
+      setErrorStatus(error);
     });
   }, []);
+
+  if (errorStatus) {
+    return (
+      <div className={s.appLoading}>
+        There was an error while loading the app.
+      </div>
+    );
+  }
 
   if (!dataFetched) {
     return <div className={s.appLoading}>Loading...</div>;
