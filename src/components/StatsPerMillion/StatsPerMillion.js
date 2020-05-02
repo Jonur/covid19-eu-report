@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { SECTION_TITLE, TABLE_VIEW_DATA } from '../../definitions/propTypes';
 import { SectionTitle, TableView } from '..';
-import s from './TableStatSection.module.scss';
+import { getCountryStatsPerMillion } from '../../utils/dataFilteringUtils';
+import s from './StatsPerMillion.module.scss';
 
-const TableStatSection = ({
-  alerting,
+const StatsPerMillion = ({
   ariaLabelledBy,
   columnNames,
   data,
   dataProp,
   dataPropSecondary,
-  icon,
-  increasingStat,
-  sectionTotals,
-  sectionNew,
-  sectionTitle,
+  europeanCountriesData,
+  sectionSubtitle,
   title,
 }) => {
   const [expandedSection, setExpandedSection] = useState(false);
@@ -23,21 +20,16 @@ const TableStatSection = ({
     <section aria-labelledby={ariaLabelledBy} className={s.section}>
       <SectionTitle
         ariaLabelledBy={ariaLabelledBy}
-        alerting={alerting}
         expandedSection={expandedSection}
-        icon={icon}
-        sectionTotals={sectionTotals}
-        sectionNew={sectionNew}
-        sectionTitle={sectionTitle}
+        sectionSubtitle={sectionSubtitle}
         setExpandedSection={setExpandedSection}
       />
       {expandedSection && (
         <TableView
           columnNames={columnNames}
-          data={data}
+          data={getCountryStatsPerMillion(data, europeanCountriesData)}
           dataProp={dataProp}
           dataPropSecondary={dataPropSecondary}
-          increasingStat={increasingStat}
           title={title}
         />
       )}
@@ -45,13 +37,9 @@ const TableStatSection = ({
   );
 };
 
-TableStatSection.propTypes = {
+StatsPerMillion.propTypes = {
   ...SECTION_TITLE,
   ...TABLE_VIEW_DATA,
 };
 
-TableStatSection.defaultProps = {
-  increasingStat: false,
-};
-
-export default TableStatSection;
+export default StatsPerMillion;

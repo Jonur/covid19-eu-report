@@ -18,8 +18,10 @@ export const getWorldTotals = (apiData) =>
     { confirmed: 0, deaths: 0, recovered: 0 }
   );
 
+export const getFormattedNumber = (number) => parseFloat(number.toFixed(2), 10);
+
 export const getFormattedPercentage = (part, total) =>
-  parseFloat(((part / total) * 100).toFixed(2), 10);
+  getFormattedNumber((part / total) * 100);
 
 export const getEuPercentVsRoW = (rowTotals, euTotals) => ({
   confirmed: getFormattedPercentage(euTotals.confirmed, rowTotals.confirmed),
@@ -49,7 +51,7 @@ export const getTotalPropOfCountry = (countryData, prop) =>
 export const getTotalPropOfCountryYesterday = (countryData, prop) =>
   countryData[countryData.length - 2]?.[prop] || 0;
 
-export const getCountiesTotalsDate = (countriesStats) => {
+export const getcountriesTotalsDate = (countriesStats) => {
   const filteredStats = Object.keys(countriesStats).map((country) => {
     const totalDeaths = getTotalPropOfCountry(
       countriesStats[country],
@@ -213,3 +215,39 @@ export const getCountryNewCasesByDateNewestFirst = (euCovidData, country) => {
       : [...newCasesTimeline];
   }, []);
 };
+
+export const getEuropeCountriesMap = (europeanCountriesData) =>
+  europeanCountriesData.reduce(
+    (europeCountriesMap, country) => ({
+      ...europeCountriesMap,
+      [country.alpha3Code]: country,
+    }),
+    {}
+  );
+
+export const getCountryStatsPerMillion = (
+  countriesTotalsToDate,
+  europeanCountriesData
+) =>
+  Object.keys(EU_COUNTRIES).reduce((statsPerMillionForEU, country) => {
+    const countryPopulation =
+      europeanCountriesData[EU_COUNTRIES[country].alpha3Code]?.population ?? 1;
+    const countryTotals =
+      countriesTotalsToDate?.find(({ countryName }) =>
+        countryName.includes(EU_COUNTRIES[country].name)
+      ) ?? {};
+
+    return [
+      ...statsPerMillionForEU,
+      {
+        countryName: countryTotals.countryName,
+        cases: getFormattedNumber(
+          (countryTotals.totalCases * 1000000) / countryPopulation
+        ),
+        deaths: getFormattedNumber(
+          (countryTotals.totalDeaths * 1000000) / countryPopulation
+        ),
+        flagSrc: getCountryFlagURL(country),
+      },
+    ];
+  }, []);

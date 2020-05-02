@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { sortCountriesDataByColumn } from '../../utils/dataFilteringUtils';
+import { getFormattedIncreasingValue } from '../../utils/dataPresentationUtils';
 import { TABLE_VIEW_DATA } from '../../definitions/propTypes';
 import s from './TableView.module.scss';
 
-const TableView = ({ data, dataProp, dataPropSecondary, title }) => {
+const TableView = ({
+  columnNames,
+  data,
+  dataProp,
+  dataPropSecondary,
+  increasingStat,
+  title,
+}) => {
   const [countriesData, setCountriesData] = useState(data);
   const [sortedColumns, setSortedColumns] = useState({
     countryName: true,
@@ -42,11 +50,23 @@ const TableView = ({ data, dataProp, dataPropSecondary, title }) => {
                 )
               }
             >
-              <span className={s.columnName}>Total</span>
+              <span className={s.columnName}>{columnNames[0]}</span>
               <span className={s.columnSort} />
             </th>
-            <th className={s.th}>
-              <span className={s.columnName}>New</span>
+            <th
+              className={s.th}
+              onClick={() =>
+                sortCountriesDataByColumn(
+                  dataPropSecondary,
+                  countriesData,
+                  sortedColumns,
+                  setSortedColumns,
+                  setCountriesData
+                )
+              }
+            >
+              <span className={s.columnName}>{columnNames[1]}</span>
+              <span className={s.columnSort} />
             </th>
           </tr>
         </thead>
@@ -63,9 +83,10 @@ const TableView = ({ data, dataProp, dataPropSecondary, title }) => {
               </td>
               <td className={s.td}>{country[dataProp]}</td>
               <td className={s.td}>
-                {!!country[dataPropSecondary]
-                  ? `+${country[dataPropSecondary]}`
-                  : ''}
+                {getFormattedIncreasingValue(
+                  country[dataPropSecondary],
+                  increasingStat
+                )}
               </td>
             </tr>
           ))}
@@ -78,6 +99,10 @@ const TableView = ({ data, dataProp, dataPropSecondary, title }) => {
 
 TableView.propTypes = {
   ...TABLE_VIEW_DATA,
+};
+
+TableView.defaultProps = {
+  increasingStat: false,
 };
 
 export default TableView;

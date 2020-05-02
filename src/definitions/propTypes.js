@@ -29,19 +29,21 @@ export const EU_COVID19_DATA = {
 };
 
 export const TABLE_VIEW_DATA = {
+  columnNames: arrayOf(string.isRequired).isRequired,
   data: arrayOf(
     shape({
       countryName: string.isRequired,
       flagSrc: string.isRequired,
-      deathsLast24h: number.isRequired,
-      totalDeaths: number.isRequired,
-      totalCases: number.isRequired,
-      casesLast24h: number.isRequired,
-      totalRecovered: number.isRequired,
-      recoveredLast24h: number.isRequired,
+      deathsLast24h: number,
+      totalDeaths: number,
+      totalCases: number,
+      casesLast24h: number,
+      totalRecovered: number,
+      recoveredLast24h: number,
     }).isRequired
   ).isRequired,
   dataProp: string.isRequired,
+  increasingStat: bool,
   title: string.isRequired,
 };
 

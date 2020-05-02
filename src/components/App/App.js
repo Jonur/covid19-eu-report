@@ -6,11 +6,13 @@ import {
   GraphSection,
   Header,
   PiechartSection,
+  StatsPerMillion,
   TableStatSection,
 } from '..';
 import {
-  getCountiesTotalsDate,
+  getcountriesTotalsDate,
   getEUCovidData,
+  getEuropeCountriesMap,
   getEUTotalsByDateNewestFirst,
   getLastUpdateFromData,
   getWorldTotals,
@@ -31,13 +33,16 @@ const App = () => {
       const worldTotals = getWorldTotals(covid19data);
       const euCovidData = getEUCovidData(covid19data);
       const lastUpdate = getLastUpdateFromData(euCovidData);
-      const countiesTotalsToDate = getCountiesTotalsDate(euCovidData);
+      const countriesTotalsToDate = getcountriesTotalsDate(euCovidData);
       const euTotalsByDate = getEUTotalsByDateNewestFirst(euCovidData);
       const euTotals = getEUtotals(euTotalsByDate);
+      const europeanCountriesDataMap = getEuropeCountriesMap(
+        europeanCountriesData
+      );
 
       setAppData({
-        countiesTotalsToDate,
-        europeanCountriesData,
+        countriesTotalsToDate,
+        europeanCountriesDataMap,
         euCovidData,
         euTotals,
         euTotalsByDate,
@@ -54,9 +59,9 @@ const App = () => {
   }
 
   const {
-    countiesTotalsToDate,
+    countriesTotalsToDate,
     euCovidData,
-    europeanCountriesData,
+    europeanCountriesDataMap,
     euTotals,
     euTotalsByDate,
     lastUpdate,
@@ -70,7 +75,8 @@ const App = () => {
         <TableStatSection
           alerting="warning"
           ariaLabelledBy="total-cases-title"
-          data={countiesTotalsToDate}
+          columnNames={['Total', 'New']}
+          data={countriesTotalsToDate}
           dataProp="totalCases"
           dataPropSecondary="casesLast24h"
           icon="warning-check"
@@ -78,11 +84,13 @@ const App = () => {
           sectionNew={`${formatThousands(euTotals.new.confirmed)}`}
           sectionTitle="EU confirmed cases"
           title="Total confirmed cases table"
+          increasingStat
         />
         <TableStatSection
           alerting="danger"
           ariaLabelledBy="total-deaths-title"
-          data={countiesTotalsToDate}
+          columnNames={['Total', 'New']}
+          data={countriesTotalsToDate}
           dataProp="totalDeaths"
           dataPropSecondary="deathsLast24h"
           icon="minus"
@@ -90,11 +98,13 @@ const App = () => {
           sectionNew={`${formatThousands(euTotals.new.deaths)}`}
           sectionTitle="EU deaths"
           title="Total deaths table"
+          increasingStat
         />
         <TableStatSection
           alerting="success"
           ariaLabelledBy="total-recovered-title"
-          data={countiesTotalsToDate}
+          columnNames={['Total', 'New']}
+          data={countriesTotalsToDate}
           dataProp="totalRecovered"
           dataPropSecondary="recoveredLast24h"
           icon="plus"
@@ -102,6 +112,7 @@ const App = () => {
           sectionNew={`${formatThousands(euTotals.new.recovered)}`}
           sectionTitle="EU recovered patients"
           title="Recovered patients table"
+          increasingStat
         />
         <GraphSection
           ariaLabelledBy="increase-timeline-title"
@@ -120,6 +131,16 @@ const App = () => {
           ariaLabelledBy="new-cases-curve"
           graphData={euCovidData}
           sectionSubtitle="Each country's new cases curve"
+        />
+        <StatsPerMillion
+          ariaLabelledBy="eu-stats-per-million"
+          columnNames={['Cases', 'Deaths']}
+          data={countriesTotalsToDate}
+          dataProp="cases"
+          dataPropSecondary="deaths"
+          europeanCountriesData={europeanCountriesDataMap}
+          sectionSubtitle="Country stats per million of population"
+          title="Country stats per million of population table"
         />
         <PiechartSection
           ariaLabelledBy="eu-row-totals"

@@ -91,7 +91,7 @@ describe('dataFilteringUtils', () => {
     });
   });
 
-  describe('getCountiesTotalsDate', () => {
+  describe('getcountriesTotalsDate', () => {
     const getCountryFlagURLSpy = jest.spyOn(utils, 'getCountryFlagURL');
     const getTotalPropOfCountrySpy = jest.spyOn(utils, 'getTotalPropOfCountry');
     const getTotalPropOfCountryYesterdaySpy = jest.spyOn(
@@ -104,7 +104,7 @@ describe('dataFilteringUtils', () => {
       getTotalPropOfCountrySpy.mockReturnValue(100);
       getTotalPropOfCountryYesterdaySpy.mockReturnValue(90);
 
-      const result = utils.getCountiesTotalsDate({
+      const result = utils.getcountriesTotalsDate({
         Greece: [{ deaths: 100, confirmed: 100, recovered: 100 }],
       });
       expect(result).toEqual([
@@ -126,7 +126,7 @@ describe('dataFilteringUtils', () => {
       getTotalPropOfCountrySpy.mockReturnValue(100);
       getTotalPropOfCountryYesterdaySpy.mockReturnValue(90);
 
-      const result = utils.getCountiesTotalsDate({
+      const result = utils.getcountriesTotalsDate({
         'United Kingdom': [{ deaths: 100, confirmed: 100, recovered: 100 }],
       });
       expect(result[0]).toEqual(

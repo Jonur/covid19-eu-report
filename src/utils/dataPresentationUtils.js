@@ -45,3 +45,6 @@ export const getChartData = (
     color: piechartBg,
   },
 ];
+
+export const getFormattedIncreasingValue = (value, increasingStat) =>
+  `${value > 0 ? `${increasingStat ? '+' : ''}${value}` : ''}`;
