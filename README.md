@@ -2,6 +2,19 @@
 
 This project is a simple visualisation of the cases and spread status of the COVID-19 pandemic in the member states of the European Union.
 
+# Data
+
+[@pomber's](https://github.com/pomber) - data for the COVID-19 epidemic ([covid19](https://pomber.github.io/covid19/timeseries.json) repository)
+[REST countries](https://restcountries.eu/) API - ([restcountries](https://github.com/apilayer/restcountries) repository)
+
+# Team
+
+[Eleana Gkogka](https://www.linkedin.com/in/eleanagkogka/) - UX & UI
+
+[Dimitris Damilos](https://www.linkedin.com/in/dimitrisdamilos/) - Development
+
+[Maria Panelli](https://www.linkedin.com/in/maria-panelli/) - QA and review
+
 # Build
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -32,11 +45,3 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-# Credits
-
-[@pomber's](https://github.com/pomber) - data for the COVID-19 epidemic ([covid19](https://pomber.github.io/covid19/timeseries.json) repository)
-
-[Maria Panelli](https://www.linkedin.com/in/maria-panelli/) - QA and review
-
-[Eleana Gkogka](https://www.linkedin.com/in/eleanagkogka/) - UX & UI
