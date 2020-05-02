@@ -2,6 +2,7 @@ import {
   formatThousands,
   getChartData,
   getEUtotals,
+  getFormattedIncreasingValue,
   getHumanFormattedDate,
   getStatLineWidth,
 } from './dataPresentationUtils';
@@ -66,6 +67,23 @@ describe('dataPresentationUtils', () => {
           value: 73,
         },
       ]);
+    });
+  });
+
+  describe('getFormattedIncreasingValue', () => {
+    it('should return a formatted positive value of an increasing stat', () => {
+      const result = getFormattedIncreasingValue(50, true);
+      expect(result).toBe('+50');
+    });
+
+    it('should return a formatted positive value of an non increasing stat', () => {
+      const result = getFormattedIncreasingValue(50, false);
+      expect(result).toBe('50');
+    });
+
+    it('should return an empty String for a negative or 0 value', () => {
+      const result = getFormattedIncreasingValue(-50, true);
+      expect(result).toBe('');
     });
   });
 });

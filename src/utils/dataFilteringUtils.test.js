@@ -16,6 +16,13 @@ describe('dataFilteringUtils', () => {
     });
   });
 
+  describe('getFormattedNumber', () => {
+    it('should return a result as a float number with up to two decimal digits', () => {
+      const result = utils.getFormattedNumber(2323.192873);
+      expect(result).toBe(2323.19);
+    });
+  });
+
   describe('getFormattedPercentage', () => {
     it('should return a percentage result as a float number with up to two decimal digits', () => {
       const result = utils.getFormattedPercentage(2323, 90120);
@@ -315,6 +322,77 @@ describe('dataFilteringUtils', () => {
         { 'New Cases': 10, date: '2 May 20' },
         { 'New Cases': 10, date: '5 Dec 20' },
       ]);
+    });
+  });
+
+  describe('getEuropeCountriesMap', () => {
+    const data = [
+      { alpha3Code: 'GRC', name: 'Greece' },
+      { alpha3Code: 'ITA', name: 'Italy' },
+    ];
+
+    it('should return a map of the received array data based on the `alpha3Code` property', () => {
+      const result = utils.getEuropeCountriesMap(data);
+      expect(result).toEqual({
+        GRC: {
+          alpha3Code: 'GRC',
+          name: 'Greece',
+        },
+        ITA: {
+          alpha3Code: 'ITA',
+          name: 'Italy',
+        },
+      });
+    });
+  });
+
+  describe('getCountryStatsPerMillion', () => {
+    const countriesDataMap = {
+      ITA: {
+        alpha3Code: 'ITA',
+        name: 'Italy',
+        population: 60000000,
+      },
+    };
+
+    it('should return an Array of country stats per million of population', () => {
+      const countriesTotalsToDate = [
+        { countryName: 'Italy', totalCases: 9000, totalDeaths: 4000 },
+      ];
+      const result = utils.getCountryStatsPerMillion(
+        countriesTotalsToDate,
+        countriesDataMap
+      );
+      expect(result).toEqual(
+        expect.arrayContaining([
+          {
+            cases: 150,
+            countryName: 'Italy',
+            deaths: 66.67,
+            flagSrc: 'https://www.countryflags.io/it/flat/32.png',
+          },
+        ])
+      );
+    });
+
+    it('should return an Object with empty values for a country there was no data', () => {
+      const countriesTotalsToDate = [
+        { countryName: 'Greece', totalCases: 3000, totalDeaths: 200 },
+      ];
+      const result = utils.getCountryStatsPerMillion(
+        countriesTotalsToDate,
+        countriesDataMap
+      );
+      expect(result).toEqual(
+        expect.not.arrayContaining([
+          {
+            cases: 150,
+            countryName: 'Italy',
+            deaths: 66.67,
+            flagSrc: 'https://www.countryflags.io/it/flat/32.png',
+          },
+        ])
+      );
     });
   });
 });

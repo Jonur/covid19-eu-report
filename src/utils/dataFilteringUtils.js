@@ -237,17 +237,19 @@ export const getCountryStatsPerMillion = (
         countryName.includes(EU_COUNTRIES[country].name)
       ) ?? {};
 
-    return [
-      ...statsPerMillionForEU,
-      {
-        countryName: countryTotals.countryName,
-        cases: getFormattedNumber(
-          (countryTotals.totalCases * 1000000) / countryPopulation
-        ),
-        deaths: getFormattedNumber(
-          (countryTotals.totalDeaths * 1000000) / countryPopulation
-        ),
-        flagSrc: getCountryFlagURL(country),
-      },
-    ];
+    return countryTotals.countryName
+      ? [
+          ...statsPerMillionForEU,
+          {
+            countryName: countryTotals.countryName,
+            cases: getFormattedNumber(
+              (countryTotals.totalCases * 1000000) / countryPopulation
+            ),
+            deaths: getFormattedNumber(
+              (countryTotals.totalDeaths * 1000000) / countryPopulation
+            ),
+            flagSrc: getCountryFlagURL(country),
+          },
+        ]
+      : [...statsPerMillionForEU];
   }, []);
