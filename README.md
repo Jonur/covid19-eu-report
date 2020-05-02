@@ -5,6 +5,7 @@ This project is a simple visualisation of the cases and spread status of the COV
 # Data
 
 [@pomber's](https://github.com/pomber) - data for the COVID-19 epidemic ([covid19](https://pomber.github.io/covid19/timeseries.json) repository)
+
 [REST countries](https://restcountries.eu/) API - ([restcountries](https://github.com/apilayer/restcountries) repository)
 
 # Team
