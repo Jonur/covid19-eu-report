@@ -50,6 +50,11 @@ describe('dataPresentationUtils', () => {
       const result = formatThousands(123654);
       expect(result).toBe('123,654');
     });
+
+    it('return 0 for a negative number', () => {
+      const result = formatThousands(-1);
+      expect(result).toBe('0');
+    });
   });
 
   describe('getChartData', () => {

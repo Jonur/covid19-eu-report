@@ -26,7 +26,7 @@ export const getEUtotals = (euTotalsByDate) => {
 };
 
 export const formatThousands = (num) =>
-  num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  num > 0 ? num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') : '0';
 
 export const getChartData = (
   piechartBg,
