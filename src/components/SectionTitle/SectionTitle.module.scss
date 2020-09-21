@@ -43,7 +43,7 @@
     color: $font-dark;
     flex: 2 2;
     max-width: 150px;
-    padding-left: 1.25rem;
+    padding: 0 0.5rem 0 1.25rem;
 
     .totalLabel {
       font-size: 0.9375rem;
@@ -70,9 +70,11 @@
 
   .titleTotals {
     border-right: 1px solid $light-grey;
+    min-width: 150px;
 
     @media (min-width: 768px) {
       padding-left: 2rem;
+      max-width: 200px;
     }
   }
 
