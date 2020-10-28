@@ -15,5 +15,9 @@
     font-weight: 400;
     display: flex;
     flex-direction: column;
+
+    [class*='recharts-yAxis'] {
+      font-size: 10px;
+    }
   }
 }
