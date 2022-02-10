@@ -58,7 +58,7 @@
     "@testing-library/react": "^10.0.1",
     "@testing-library/user-event": "^10.0.1",
     "axios-mock-adapter": "^1.18.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prop-types": "^15.7.2"
   }
 }
